@@ -8,7 +8,16 @@ import { motion, AnimatePresence } from "motion/react";
 import { RiDashboardHorizontalLine } from "react-icons/ri";
 import { FaRegUserCircle } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
+import { LuHeart } from "react-icons/lu";
+import { TbRoad } from "react-icons/tb";
+import { FaRegMessage } from "react-icons/fa6";
+import { FiLogOut } from "react-icons/fi";
+import { GoArrowSwitch } from "react-icons/go";
+import { FaHeadphones } from "react-icons/fa6";
+import { CgNotes } from "react-icons/cg";
+
 import { usePathname } from "next/navigation";
+import { Button, Divider } from "@mui/material";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,6 +40,11 @@ export default function Navbar() {
   // Toggle dropdown for mobile click
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleLogOut = () => {
+    // Add your logout logic here
+    console.log("Logging out...");
   };
 
   const dropdownVariants = {
@@ -105,30 +119,124 @@ export default function Navbar() {
             <AnimatePresence>
               {isDropdownOpen && (
                 <motion.div
-                  className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50"
+                  className="absolute right-0 top-10 mt-2 w-56 bg-gray-50 rounded-md shadow-lg py-2 z-50"
                   variants={dropdownVariants}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
                 >
                   {[
-                    { href: "/profile", label: "Profile" },
-                    { href: "/settings", label: "Settings" },
-                    { href: "/logout", label: "Logout" },
+                    {
+                      href: "/favourites",
+                      label: "Favourites",
+                      icon: <LuHeart />,
+                    },
+                    { href: "/trips", label: "Trips", icon: <TbRoad /> },
+                    { href: "/inbox", label: "Inbox", icon: <FaRegMessage /> },
                   ].map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`block px-4 py-2 text-sm text-gray-700 ${
+                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
                         pathname === link.href
                           ? "bg-gray-100"
-                          : "hover:bg-gray-100"
+                          : "hover:bg-gray-200"
                       }`}
                       onClick={handleDropdownClose}
                     >
-                      {link.label}
+                      {link.icon} {link.label}
                     </Link>
                   ))}
+                  <Divider variant="middle" />
+                  <Link
+                    href="/profile"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/profile"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <Image
+                      src="/images/profile-image.png"
+                      alt="Profile Image"
+                      width={21}
+                      height={21}
+                    />
+                    <p>Profile</p>
+                  </Link>
+                  <Link
+                    href="/account"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/account"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <FaRegUserCircle />
+                    <p>Account</p>
+                  </Link>
+                  <Link
+                    href="/switch-to-host"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/switch-to-host"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <GoArrowSwitch />
+                    <p>Switch To Host</p>
+                  </Link>
+                  <Divider variant="middle" />
+                  {[
+                    {
+                      href: "/contact-support",
+                      label: "Contact Support",
+                      icon: <FaHeadphones />,
+                    },
+                    {
+                      href: "/terms-and-conditions",
+                      label: "Terms & Conditions",
+                      icon: <CgNotes />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={handleDropdownClose}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}{" "}
+                  <Divider variant="middle" />
+                  <Button
+                    sx={{
+                      textTransform: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      px: "20px",
+                      color: "#191919",
+                      fontWeight: "500",
+                      width: "100%",
+                      justifyContent: "flex-start",
+                      fontStyle: "normal",
+                      fontSize: "15px",
+
+                      "&:hover": { backgroundColor: "#e5e7eb" },
+                    }}
+                    onClick={handleLogOut}
+                  >
+                    <FiLogOut />
+                    Log Out
+                  </Button>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -146,7 +254,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white shadow-md">
-          <div className="flex flex-col items-center font-medium py-4 space-y-4">
+          <div className="flex flex-col items-center font-medium py-2 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -175,37 +283,129 @@ export default function Navbar() {
                 onClick={toggleDropdown}
               />
               {isDropdownOpen && (
-                <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
+                <div className="absolute top-8 left-0 transform -translate-x-1/2 w-56 bg-white rounded-md shadow-lg py-2 z-50">
+                  {[
+                    {
+                      href: "/favourites",
+                      label: "Favourites",
+                      icon: <LuHeart />,
+                    },
+                    { href: "/trips", label: "Trips", icon: <TbRoad /> },
+                    { href: "/inbox", label: "Inbox", icon: <FaRegMessage /> },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+
+                  <Divider variant="middle" className="my-1" />
+
                   <Link
                     href="/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/profile"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
                   >
-                    Profile
+                    <Image
+                      src="/images/profile-image.png"
+                      alt="Profile Image"
+                      width={21}
+                      height={21}
+                    />
+                    <p>Profile</p>
                   </Link>
+
                   <Link
-                    href="/settings"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    href="/account"
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/account"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
                   >
-                    Settings
+                    <FaRegUserCircle />
+                    <p>Account</p>
                   </Link>
+
                   <Link
-                    href="/logout"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    href="/switch-to-host"
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/switch-to-host"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
+                  >
+                    <GoArrowSwitch />
+                    <p>Switch To Host</p>
+                  </Link>
+
+                  <Divider variant="middle" className="my-1" />
+
+                  {[
+                    {
+                      href: "/contact-support",
+                      label: "Contact Support",
+                      icon: <FaHeadphones />,
+                    },
+                    {
+                      href: "/terms-and-conditions",
+                      label: "Terms & Conditions",
+                      icon: <CgNotes />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+
+                  <Divider variant="middle" className="my-1" />
+
+                  <Button
+                    sx={{
+                      textTransform: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      px: "20px",
+                      color: "#191919",
+                      fontWeight: "500",
+                      width: "100%",
+                      justifyContent: "flex-start",
+                      fontStyle: "normal",
+                      fontSize: "15px",
+                      "&:hover": { backgroundColor: "#e5e7eb" },
+                    }}
                     onClick={() => {
-                      setIsDropdownOpen(false);
-                      setIsMobileMenuOpen(false);
+                      handleLogOut();
+                      toggleMobileMenu();
                     }}
                   >
-                    Logout
-                  </Link>
+                    <FiLogOut />
+                    Log Out
+                  </Button>
                 </div>
               )}
             </div>
