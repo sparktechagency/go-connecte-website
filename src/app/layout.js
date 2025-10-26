@@ -1,5 +1,7 @@
 import Navbar from "@/components/Shared/Navbar";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { DM_Sans } from "next/font/google";
 import Footer from "@/components/Shared/Footer";
 
