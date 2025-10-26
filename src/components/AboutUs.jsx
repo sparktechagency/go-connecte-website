@@ -77,7 +77,7 @@ export default function AboutUs() {
         {/* Right column (images / stats) */}
         <div className="flex items-center justify-center gap-2 sm:gap-5 w-full">
           {/* Main image - responsive sizes */}
-          <div className="relative h-48 md:h-[310px] w-3/5 md:w-72 rounded-md overflow-hidden flex-shrink-0">
+          <div className="relative h-48 md:h-[310px] w-3/5 md:w-72 rounded-md overflow-hidden shrink-0">
             <Image
               src={aboutUsImages.aboutUs01}
               alt="About Us Image"
