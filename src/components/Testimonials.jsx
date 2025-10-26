@@ -114,7 +114,7 @@ export default function TestimonialsCarousel() {
             <FaStarOfLife />
             <p className="text-sm sm:text-base font-medium">Testimonials</p>
           </div>
-          <h2 className="text=lg sm:text-2xl lg:text-4xl font-semibold">
+          <h2 className="text-lg sm:text-2xl lg:text-4xl font-semibold">
             What our customers are saying about us
           </h2>
         </div>
