@@ -28,7 +28,7 @@ export default function AboutUs() {
             </p>
 
             <div className="flex items-center gap-4 mt-4">
-              <div className="bg-[#00aea846] rounded-full p-3 mr-2 shrink-0">
+              <div className="bg-[#88fffb46] rounded-full p-3 mr-2 shrink-0">
                 <Image
                   src={aboutUsIcons.aboutIcon01}
                   alt="About Us Icon"
@@ -53,7 +53,7 @@ export default function AboutUs() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="bg-[#00aea846] rounded-full p-3 mr-2 shrink-0">
+              <div className="bg-[#88fffb46] rounded-full p-3 mr-2 shrink-0">
                 <Image
                   src={aboutUsIcons.aboutIcon02}
                   alt="About Us Icon"
