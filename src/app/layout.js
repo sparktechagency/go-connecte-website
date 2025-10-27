@@ -1,7 +1,11 @@
 import Navbar from "@/components/Shared/Navbar";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { DM_Sans } from "next/font/google";
 import Footer from "@/components/Shared/Footer";
+import AnimatedCursor from "@/components/libs/AnimatedCursor";
+import { CursorProvider } from "@/components/libs/Context/CursorContext";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -19,9 +23,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSans.className}>
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <CursorProvider>
+          <AnimatedCursor borderColor="white" />
+          <Navbar />
+          {children}
+          <Footer />
+        </CursorProvider>
       </body>
     </html>
   );
