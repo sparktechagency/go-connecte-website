@@ -52,7 +52,7 @@ export default function HeroSection() {
               {/* Responsive heights:
                   mobile ~60vh, tablet ~70vh, desktop ~90-100vh.
                   Adjust values to taste. */}
-              <div className="relative w-screen h-[40vh] sm:h-[50vh] lg:h-[70vh]">
+              <div className="relative w-screen h-[40vh] sm:h-[50vh] lg:h-[90vh]">
                 <Image
                   src={slide.image}
                   alt={slide.title}
@@ -67,7 +67,7 @@ export default function HeroSection() {
                   <div className="flex flex-col gap-3 max-w-2xl text-center text-white">
                     <p className="text-[#07d6cf] flex items-center justify-center gap-2 text-sm sm:text-base md:text-xl font-medium drop-shadow-lg">
                       <FaStarOfLife />
-                      Welcome to Go Connete
+                      Welcome to Go Connecte
                     </p>
                     <p className="text-xl sm:text-3xl lg:text-5xl font-bold drop-shadow-lg">
                       Want to save on your next ride?

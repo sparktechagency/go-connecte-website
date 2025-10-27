@@ -16,6 +16,8 @@ import chooseIcon02 from "./icons/WCU02.png";
 import chooseIcon03 from "./icons/WCU03.png";
 import chooseIcon04 from "./icons/WCU04.png";
 
+import suggestedImage from "./Carento.png";
+
 export const heroSlider = {
   slider01: slider01,
   slider02: slider02,
@@ -42,4 +44,8 @@ export const whyChooseUsIcons = {
   chooseIcon02: chooseIcon02,
   chooseIcon03: chooseIcon03,
   chooseIcon04: chooseIcon04,
+};
+
+export const suggestedCarImage = {
+  suggestedImage: suggestedImage,
 };
