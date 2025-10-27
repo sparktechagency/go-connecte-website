@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import LanguageToggle from "../utils/LanguageToggle";
@@ -18,6 +18,7 @@ import { CgNotes } from "react-icons/cg";
 
 import { usePathname } from "next/navigation";
 import { Button, Divider } from "@mui/material";
+import { useCursor } from "../libs/Context/CursorContext";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

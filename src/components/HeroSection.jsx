@@ -6,6 +6,7 @@ import Image from "next/image";
 import { heroSlider } from "../../public/images/AllImages";
 import { CircularProgress } from "@mui/material";
 import { FaStarOfLife } from "react-icons/fa6";
+import AnimatedCursor from "./libs/AnimatedCursor";
 
 // Load Slider only on client. Show a minimal loading placeholder.
 const Slider = dynamic(() => import("react-slick"), {
@@ -45,6 +46,7 @@ export default function HeroSection() {
   return (
     // make sure the parent doesn't add horizontal padding; keep overflow-hidden to avoid scrollbar
     <section className="relative overflow-hidden">
+      {/* <AnimatedCursor borderColor="white" /> */}
       <div className="w-screen">
         <Slider {...settings}>
           {slides.map((slide) => (

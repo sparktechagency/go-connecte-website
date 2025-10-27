@@ -1,17 +1,29 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaStarOfLife } from "react-icons/fa6";
 import { aboutUsIcons, aboutUsImages } from "../../public/images/AllImages";
 import { Divider } from "@mui/material";
+import { useCursor } from "./libs/Context/CursorContext";
 
 export default function AboutUs() {
+  const { setBorderColor } = useCursor();
+
+  useEffect(() => {
+    // Set cursor color to cyan/teal for this section with white/light background
+    setBorderColor("#fff");
+
+    // Optional: reset to default when leaving this section
+    return () => setBorderColor("white");
+  }, [setBorderColor]);
+
   return (
-    <div className="max-w-7xl mx-auto my-10 px-5">
+    <div className="max-w-7xl mx-auto py-10 px-5 bg-white">
       <div className="flex items-center gap-2 text-[#04c7c0] font-semibold sm:mb-4">
         <FaStarOfLife />
         <p>About Us</p>
       </div>
-
       {/* Use column layout on mobile, switch to row at md (tablet). lg/xl unchanged */}
       <div className="flex flex-col lg:flex-row gap-5">
         {/* Left column */}
@@ -23,7 +35,7 @@ export default function AboutUs() {
 
             <p className="text-[#616161] text-sm md:text-lg md:leading-6">
               Find reliable cars at great rates, ready whenever and wherever you
-              need them. From quick trips to long journeys, we’ve got you
+              need them. From quick trips to long journeys, we&apos;ve got you
               covered
             </p>
 
