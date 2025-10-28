@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,86 +9,45 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Chip from "@mui/material/Chip";
 import { GoDotFill } from "react-icons/go";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
+
 import { suggestedCarImage } from "../../public/images/AllImages";
 import Image from "next/image";
-
-const carData = [
-  {
-    id: 1,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 16,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "3.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-  {
-    id: 2,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 16,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "3.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-  {
-    id: 3,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 16,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "3.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-  {
-    id: 4,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 15,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "4.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-  {
-    id: 5,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 16,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "3.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-  {
-    id: 6,
-    name: "Audi A3 1.6 TDI S line",
-    image: suggestedCarImage.suggestedImage,
-    rating: 4.96,
-    trips: 15,
-    driver: "With Driver",
-    location: "Manchester, England",
-    distance: "3.1 mi",
-    price: "25000F CFA/Day",
-    available: true,
-  },
-];
+import Link from "next/link";
+import axios from "axios";
+import { CircularProgress } from "@mui/material";
 
 export default function Suggested() {
+  const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState({});
+  const [showAll, setShowAll] = useState(false);
+
+  const handleViewMore = () => {
+    setShowAll(true);
+  };
+
+  const displayedCars = showAll ? cars : cars.slice(0, 6);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await axios.get("/data/carData.json");
+        setCars(response.data);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
+  }, []);
+  console.log(cars);
+
+  if (loading) return <CircularProgress />;
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => ({
@@ -112,7 +71,7 @@ export default function Suggested() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {carData.map((car) => (
+          {displayedCars.map((car) => (
             <Card
               key={car.id}
               sx={{
@@ -128,9 +87,16 @@ export default function Suggested() {
               {/* Image with Favorite Button */}
               <div className="relative">
                 <Image
-                  src={car.image}
-                  alt={car.name}
-                  sx={{ height: 200, backgroundColor: "#f3f4f6" }}
+                  src={car.coverImage}
+                  alt={`${car.make} ${car.model}`}
+                  width={450}
+                  height={200}
+                  style={{
+                    objectFit: "cover",
+                    height: 200,
+                    backgroundColor: "#f3f4f6",
+                  }}
+                  className="rounded-t-lg"
                 />
                 <IconButton
                   onClick={() => toggleFavorite(car.id)}
@@ -160,7 +126,7 @@ export default function Suggested() {
                     />
                   </svg>
                 </IconButton>
-                {car.available && (
+                {car.availability && (
                   <Chip
                     label="Available"
                     size="small"
@@ -190,153 +156,79 @@ export default function Suggested() {
                     color: "#111827",
                   }}
                 >
-                  {car.name}
+                  {car.make} {car.model} ({car.year})
                 </Typography>
 
-                {/* Rating, Trips, Driver */}
+                {/* Rating & Reviews, Host */}
                 <div className="flex items-center gap-3 mb-2 text-sm">
-                  <div className="flex items-center gap-1">
-                    <span className="text-yellow-500 font-semibold">★</span>
-                    <span className="font-semibold text-gray-900">
-                      {car.rating}
+                  <div className="flex items-center gap-1 text-xs sm:text-sm lg:text-base">
+                    <span className="text-gray-900">
+                      {car.rating.overall.toFixed(2)}
                     </span>
-                    <span className="text-orange-500">({car.trips} Trips)</span>
+                    <span className="text-[#FFC700] font-semibold">★</span>
+                    <span className="text-[#737373]">
+                      ({car.rating.totalReviews} Reviews)
+                    </span>
                   </div>
-                  <div className="flex items-center gap-1 text-gray-600">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                    <span>{car.driver}</span>
+                  <div className="flex items-center gap-1 text-gray-600 text-xs sm:text-sm lg:text-base">
+                    <FaUser />
+                    <span>{car.host.name}</span>
                   </div>
                 </div>
 
-                {/* Location and Distance */}
-                <div className="flex items-center gap-3 mb-3 text-sm text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    <span>{car.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                      />
-                    </svg>
-                    <span>{car.distance}</span>
-                  </div>
+                {/* Location */}
+                <div className="flex items-center gap-1 mb-3 text-gray-600 text-xs sm:text-sm lg:text-base">
+                  <FaLocationDot />
+                  <span>
+                    {car.location.city}, {car.location.country}
+                  </span>
                 </div>
 
                 {/* Price and Book Button */}
                 <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                   <div>
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontSize: "1.1rem",
-                        fontWeight: 700,
-                        color: "#00AEA8",
-                      }}
-                    >
-                      {car.price}
-                    </Typography>
+                    <p className="text-sm lg:text-lg font-semibold text-[#00AEA8]">
+                      {car.price.daily.toLocaleString()} {car.price.currency}
+                      /day
+                    </p>
                   </div>
-                  <Button
-                    variant="contained"
-                    size="small"
-                    sx={{
-                      backgroundColor: "#F2F4F6",
-                      color: "black",
-                      textTransform: "none",
-                      fontWeight: 500,
-                      px: 2.5,
-                      py: 0.75,
-                      borderRadius: "6px",
-                      "&:hover": {
-                        backgroundColor: "#1f2937",
-                      },
-                    }}
+                  <Link
+                    href={`/car-details/${car.id}`}
+                    className="bg-[#F2F4F6] text-black font-semibold px-4 py-2 rounded-md hover:bg-[#00AEA8] hover:text-white transition"
                   >
                     Book Now
-                  </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
-
         {/* Load More Button */}
-        <div className="flex justify-center">
-          <Button
-            variant="contained"
-            startIcon={
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 4v16m8-8H4"
-                />
-              </svg>
-            }
-            sx={{
-              backgroundColor: "#00AEA8",
-              color: "white",
-              textTransform: "none",
-              fontSize: "1rem",
-              padding: "12px 32px",
-              borderRadius: "8px",
-              fontWeight: 500,
-              boxShadow: "0 4px 12px rgba(0, 174, 168, 0.25)",
-              "&:hover": {
-                backgroundColor: "#009991",
-                boxShadow: "0 6px 16px rgba(0, 174, 168, 0.35)",
-              },
-            }}
-          >
-            Load More Cars
-          </Button>
-        </div>
+        {!showAll && (
+          <div className="flex justify-center">
+            <Button
+              onClick={handleViewMore}
+              variant="contained"
+              startIcon={<FaPlus className="size-4" />}
+              sx={{
+                backgroundColor: "#00AEA8",
+                color: "white",
+                textTransform: "none",
+                fontSize: "1rem",
+                padding: "12px 32px",
+                borderRadius: "8px",
+                fontWeight: 500,
+                boxShadow: "0 4px 12px rgba(0, 174, 168, 0.25)",
+                "&:hover": {
+                  backgroundColor: "#009991",
+                  boxShadow: "0 6px 16px rgba(0, 174, 168, 0.35)",
+                },
+              }}
+            >
+              Load More Cars
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
