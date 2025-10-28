@@ -12,14 +12,14 @@ export default function AnimatedCursor({ borderColor = "white" }) {
       //   if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
+    // const handleMouseLeave = () => setIsVisible(false);
 
     window.addEventListener("mousemove", updateMousePosition);
-    document.addEventListener("mouseleave", handleMouseLeave);
+    // document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      // document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
