@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
@@ -13,41 +12,20 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 
-import { suggestedCarImage } from "../../public/images/AllImages";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
+import { useCars } from "./libs/hooks/useCars";
 
 export default function Suggested() {
-  const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { cars, loading, error } = useCars();
   const [favorites, setFavorites] = useState({});
   const [showAll, setShowAll] = useState(false);
 
   const handleViewMore = () => {
     setShowAll(true);
   };
-
-  const displayedCars = showAll ? cars : cars.slice(0, 6);
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const response = await axios.get("/data/carData.json");
-        setCars(response.data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchPosts();
-  }, []);
-  console.log(cars);
-
-  if (loading) return <CircularProgress />;
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => ({
@@ -56,8 +34,15 @@ export default function Suggested() {
     }));
   };
 
+  const displayedCars = showAll ? cars : cars.slice(0, 6);
+  if (error) return <div>Error loading cars: {error}</div>;
+  if (loading) return <CircularProgress />;
+
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section
+      id="suggested"
+      className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-10">
