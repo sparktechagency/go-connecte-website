@@ -7,6 +7,7 @@ import { heroSlider } from "../../public/images/AllImages";
 import { CircularProgress } from "@mui/material";
 import { FaStarOfLife } from "react-icons/fa6";
 import AnimatedCursor from "./libs/AnimatedCursor";
+import SearchBox from "./utils/SearchBox";
 
 // Load Slider only on client. Show a minimal loading placeholder.
 const Slider = dynamic(() => import("react-slick"), {
@@ -54,7 +55,7 @@ export default function HeroSection() {
               {/* Responsive heights:
                   mobile ~60vh, tablet ~70vh, desktop ~90-100vh.
                   Adjust values to taste. */}
-              <div className="relative w-screen h-[40vh] sm:h-[50vh] lg:h-[90vh]">
+              <div className="relative w-screen h-[75vh] sm:h-[80vh] lg:h-[90vh]">
                 <Image
                   src={slide.image}
                   alt={slide.title}
@@ -65,7 +66,7 @@ export default function HeroSection() {
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/50 z-10" />
                 {/* Overlay content centered. z-10 so text sits above the image. */}
-                <div className="absolute inset-0  flex items-center justify-center z-20">
+                <div className="absolute inset-0 flex flex-col gap-3 items-center justify-center z-20">
                   <div className="flex flex-col gap-3 max-w-2xl text-center text-white">
                     <p className="text-[#07d6cf] flex items-center justify-center gap-2 text-sm sm:text-base md:text-xl font-medium drop-shadow-lg">
                       <FaStarOfLife />
@@ -82,6 +83,7 @@ export default function HeroSection() {
                       </p>
                     )}
                   </div>
+                  <SearchBox />
                 </div>
               </div>
             </div>
