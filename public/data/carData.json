@@ -36,29 +36,28 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": false,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input"
+    ],
     "specifications": {
       "engineSize": "1.6L",
       "horsepower": 138,
       "fuelEfficiency": "7.8L/100km",
       "color": "Silver"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -68,7 +67,7 @@
       "id": "host-001",
       "name": "Emily Ross",
       "memberSince": "2015-07-01",
-      "avatar": "emily-ross-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 12,
       "responseTime": "Within an hour"
     },
@@ -116,31 +115,28 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": false,
-      "heatedSeats": false
-    },
+    "features": [
+      "Air Conditioning",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "USB Port",
+      "Sunroof",
+      "Heated Seats"
+    ],
     "specifications": {
       "engineSize": "1.8L",
       "horsepower": 140,
       "fuelEfficiency": "7.1L/100km",
       "color": "White"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -150,7 +146,7 @@
       "id": "host-002",
       "name": "Michael Chen",
       "memberSince": "2016-03-15",
-      "avatar": "michael-chen-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 8,
       "responseTime": "Within 30 minutes"
     },
@@ -198,33 +194,30 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": true,
-      "heatedSeats": false,
-      "appleCarPlay": true,
-      "androidAuto": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof"
+    ],
     "specifications": {
       "engineSize": "2.0L",
       "horsepower": 158,
       "fuelEfficiency": "6.7L/100km",
       "color": "Black"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -234,7 +227,7 @@
       "id": "host-001",
       "name": "Emily Ross",
       "memberSince": "2015-07-01",
-      "avatar": "emily-ross-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 12,
       "responseTime": "Within an hour"
     },
@@ -282,34 +275,28 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": true,
-      "heatedSeats": true,
-      "appleCarPlay": true,
-      "androidAuto": true,
-      "allWheelDrive": true
-    },
+    "features": [
+      "Bluetooth",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "Apple CarPlay",
+      "Android Auto",
+      "All-Wheel Drive"
+    ],
     "specifications": {
       "engineSize": "2.5L",
       "horsepower": 203,
       "fuelEfficiency": "8.6L/100km",
       "color": "Blue"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -319,7 +306,7 @@
       "id": "host-003",
       "name": "Sarah Ahmed",
       "memberSince": "2017-09-20",
-      "avatar": "sarah-ahmed-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 15,
       "responseTime": "Within 2 hours"
     },
@@ -367,29 +354,28 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": false,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input"
+    ],
     "specifications": {
       "engineSize": "2.5L",
       "horsepower": 179,
       "fuelEfficiency": "7.9L/100km",
       "color": "Gray"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -399,7 +385,7 @@
       "id": "host-004",
       "name": "David Kumar",
       "memberSince": "2018-01-10",
-      "avatar": "david-kumar-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 6,
       "responseTime": "Within an hour"
     },
@@ -447,35 +433,34 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": false,
-      "heatedSeats": true,
-      "appleCarPlay": true,
-      "androidAuto": true,
-      "allWheelDrive": true,
-      "leatherSeats": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto",
+      "All-Wheel Drive",
+      "Leather Seats"
+    ],
     "specifications": {
       "engineSize": "2.5L",
       "horsepower": 187,
       "fuelEfficiency": "8.1L/100km",
       "color": "Red"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -485,7 +470,7 @@
       "id": "host-002",
       "name": "Michael Chen",
       "memberSince": "2016-03-15",
-      "avatar": "michael-chen-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 8,
       "responseTime": "Within 30 minutes"
     },
@@ -533,33 +518,31 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": false,
-      "heatedSeats": false,
-      "appleCarPlay": true,
-      "androidAuto": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Apple CarPlay",
+      "Android Auto"
+    ],
     "specifications": {
       "engineSize": "1.5L Turbo",
       "horsepower": 180,
       "fuelEfficiency": "8.3L/100km",
       "color": "Silver"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -569,7 +552,7 @@
       "id": "host-005",
       "name": "Jessica Rahman",
       "memberSince": "2019-05-22",
-      "avatar": "jessica-rahman-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 10,
       "responseTime": "Within an hour"
     },
@@ -617,36 +600,36 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": true,
-      "heatedSeats": true,
-      "appleCarPlay": true,
-      "androidAuto": true,
-      "leatherSeats": true,
-      "parkingAssist": true,
-      "premiumSound": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto",
+      "Leather Seats",
+      "Parking Assist",
+      "Premium Sound"
+    ],
     "specifications": {
       "engineSize": "2.0L Turbo",
       "horsepower": 255,
       "fuelEfficiency": "7.5L/100km",
       "color": "Black"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -656,7 +639,7 @@
       "id": "host-006",
       "name": "Alexander Price",
       "memberSince": "2018-11-08",
-      "avatar": "alexander-price-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 5,
       "responseTime": "Within 2 hours"
     },
@@ -704,29 +687,27 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": false,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": false,
-      "usbPort": true,
-      "auxInput": true
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "Child Seat Available",
+      "Cruise Control",
+      "USB Port",
+      "AUX Input"
+    ],
     "specifications": {
       "engineSize": "1.4L Turbo",
       "horsepower": 150,
       "fuelEfficiency": "7.3L/100km",
       "color": "White"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -736,7 +717,7 @@
       "id": "host-007",
       "name": "Fatima Khan",
       "memberSince": "2019-08-14",
-      "avatar": "fatima-khan-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 7,
       "responseTime": "Within an hour"
     },
@@ -784,34 +765,33 @@
       "/images/carImages/Carento (5).png",
       "/images/carImages/Carento (1).png"
     ],
-    "features": {
-      "airConditioning": true,
-      "bluetooth": true,
-      "gpsNavigation": true,
-      "childSeatAvailable": true,
-      "cruiseControl": true,
-      "backupCamera": true,
-      "usbPort": true,
-      "auxInput": true,
-      "sunroof": true,
-      "heatedSeats": true,
-      "appleCarPlay": true,
-      "androidAuto": true,
-      "allWheelDrive": false
-    },
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto"
+    ],
     "specifications": {
       "engineSize": "2.4L",
       "horsepower": 181,
       "fuelEfficiency": "8.5L/100km",
       "color": "Green"
     },
-    "includedInPrice": {
-      "rentalPriceAllTaxesIncluded": true,
-      "freePickupDropOff": true,
-      "limitedMileage": true,
-      "mostPopularFuelPolicy": true,
-      "airConditioningAndTransmission": true
-    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
     "location": {
       "city": "Dhaka",
       "country": "Bangladesh",
@@ -821,7 +801,7 @@
       "id": "host-003",
       "name": "Sarah Ahmed",
       "memberSince": "2017-09-20",
-      "avatar": "sarah-ahmed-avatar.jpg",
+      "avatar": "/images/hostImage.png",
       "totalCars": 15,
       "responseTime": "Within 2 hours"
     },
