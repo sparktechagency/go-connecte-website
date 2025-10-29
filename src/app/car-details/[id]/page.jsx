@@ -2,11 +2,16 @@
 
 import { useCars } from "@/components/libs/hooks/useCars";
 import {
+  Box,
   Breadcrumbs,
   Button,
   CircularProgress,
+  Divider,
+  IconButton,
+  Modal,
   Tab,
   Tabs,
+  TextField,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,6 +26,7 @@ import { SiSpeedtest } from "react-icons/si";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { RxDotFilled } from "react-icons/rx";
+import { FaEdit } from "react-icons/fa";
 
 import { toast } from "sonner";
 import AboutCar from "@/components/AboutCar";
@@ -34,20 +40,34 @@ import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export default function CarDetails() {
-  const [value, setValue] = useState("about");
-  const [fromDate, setFromDate] = useState(dayjs("2022-04-17"));
-  const [fromTime, setFromTime] = useState(dayjs("2022-04-17"));
-  const [toDate, setToDate] = useState(dayjs("2022-04-17"));
-  const [toTime, setToTime] = useState(dayjs("2022-04-17"));
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   const params = useParams();
   const carId = params.id;
   console.log(carId);
 
   const { cars, loading, error } = useCars();
+
+  const [value, setValue] = useState("about");
+  const [fromDate, setFromDate] = useState(dayjs("2022-04-17"));
+  const [fromTime, setFromTime] = useState(dayjs("2022-04-17"));
+  const [toDate, setToDate] = useState(dayjs("2022-04-17"));
+  const [toTime, setToTime] = useState(dayjs("2022-04-17"));
+  const [open, setOpen] = useState(false);
+  const [location, setLocation] = useState(
+    "John F. Kennedy International Airport"
+  );
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleSave = () => {
+    // Here you can save to backend or context
+    console.log("New location saved:", location);
+    setOpen(false);
+  };
 
   // Find the car
   const car = cars.find((c) => c.id === carId);
@@ -369,41 +389,136 @@ export default function CarDetails() {
                     </LocalizationProvider>
                   </div>
                 </div>
+              </div>
+              <Divider
+                sx={{
+                  px: "20px",
+                }}
+              />
 
-                {/* Price and Action Buttons */}
-                <div className="flex flex-col gap-2 pt-2">
-                  <p className="text-center text-[#00AEA8] font-semibold text-base sm:text-lg py-2 rounded-lg border border-[#D0D0D0]">
-                    {car.price.daily} {car.price.currency}/Day
+              <div className="p-4">
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-sm sm:text-lg">
+                    Pickup & Return Location
                   </p>
-                  <Button
-                    fullWidth
-                    sx={{
-                      bgcolor: "#00AEA8",
-                      color: "white",
-                      fontSize: { xs: "16px", sm: "18px" },
-                      textTransform: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "8px",
-                      py: { xs: "10px", sm: "12px" },
-                      borderRadius: "10px",
-                      "&:hover": {
-                        bgcolor: "#009990",
+                  <IconButton>
+                    <FaEdit
+                      className="text-[#737373] text-base sm:text-2xl"
+                      onClick={handleOpen}
+                    />
+                  </IconButton>
+                </div>
+                <p className="text-[#737373] text-xs sm:text-base">
+                  {location}
+                </p>
+              </div>
+            </div>
+
+            {/* === MUI MODAL === */}
+            <Modal
+              open={open}
+              onClose={handleClose}
+              closeAfterTransition
+              aria-labelledby="edit-location-modal"
+              aria-describedby="edit-location-form"
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: { xs: "90%", sm: 500 },
+                  maxHeight: "90vh",
+                  bgcolor: "background.paper",
+                  borderRadius: 2,
+                  boxShadow: 24,
+                  p: { xs: 3, sm: 4 },
+                  outline: "none",
+                }}
+              >
+                {/* Header */}
+                <p className="font-medium mb-2">
+                  Edit Pickup & Return Location
+                </p>
+
+                {/* Input Field */}
+                <TextField
+                  autoFocus
+                  fullWidth
+                  label="Location"
+                  variant="outlined"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  placeholder="Enter airport, address, or landmark"
+                  sx={{
+                    mb: 3,
+                    "& .MuiOutlinedInput-root": {
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#14b8a6",
                       },
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                      color: "#14b8a6",
+                    },
+                  }}
+                />
+
+                {/* Action Buttons */}
+                <div className="flex justify-end gap-3">
+                  <Button
+                    onClick={handleClose}
+                    sx={{
+                      textTransform: "none",
+                      fontWeight: 500,
+                      bgcolor: "#F2F4F6",
+                      color: "black",
                     }}
                   >
-                    Book Now <FaArrowRight />
+                    Cancel
                   </Button>
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2 justify-center text-center text-[#737373] text-xs sm:text-sm py-2 hover:text-[#00AEA8] transition-colors"
+                  <Button
+                    onClick={handleSave}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#14b8a6",
+                      "&:hover": { backgroundColor: "#0d9488" },
+                      textTransform: "none",
+                      fontWeight: 600,
+                      px: 3,
+                    }}
                   >
-                    <FaUser />
-                    <p>Need Some Help?</p>
-                  </Link>
+                    Save
+                  </Button>
                 </div>
-              </div>
+              </Box>
+            </Modal>
+
+            {/* Price and Action Buttons */}
+            <div className="flex flex-col gap-2 pt-2 border border-[#D0D0D0] p-4 rounded-lg">
+              <p className="text-center text-[#00AEA8] font-semibold text-base sm:text-lg py-2 rounded-lg border border-[#D0D0D0]">
+                {car.price.daily} {car.price.currency}/Day
+              </p>
+              <Button
+                fullWidth
+                sx={{
+                  bgcolor: "#00AEA8",
+                  color: "white",
+                  fontSize: { xs: "16px", sm: "18px" },
+                  textTransform: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  py: { xs: "10px", sm: "8px" },
+                  borderRadius: "10px",
+                  "&:hover": {
+                    bgcolor: "#009990",
+                  },
+                }}
+              >
+                Book Now <FaArrowRight />
+              </Button>
             </div>
 
             {/* Hosted By Section */}
@@ -437,13 +552,13 @@ export default function CarDetails() {
                     sx={{
                       bgcolor: "#00AEA8",
                       color: "white",
-                      fontSize: { xs: "14px", sm: "16px", md: "18px" },
+                      fontSize: { xs: "14px", sm: "16px" },
                       textTransform: "none",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "8px",
-                      py: { xs: "10px", sm: "12px" },
+                      py: { xs: "10px", sm: "8px" },
                       borderRadius: "10px",
                       "&:hover": {
                         bgcolor: "#009990",
@@ -451,7 +566,7 @@ export default function CarDetails() {
                     }}
                   >
                     <span className="truncate">All items by this host</span>
-                    <FaArrowRight className="flex-shrink-0" />
+                    <FaArrowRight className="shrink-0" />
                   </Button>
                 </div>
               </div>
