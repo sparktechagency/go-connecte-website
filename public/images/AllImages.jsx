@@ -26,6 +26,8 @@ import carImage04 from "./carImages/Carento (4).png";
 import carImage05 from "./carImages/Carento (5).png";
 import carImage06 from "./carImages/Carento (1).png";
 
+import searchImage from "./carImages/Volkswagen Golf 2018.png";
+
 export const heroSlider = {
   slider01: slider01,
   slider02: slider02,
@@ -66,4 +68,8 @@ export const allCarImages = {
   carImage04: carImage04,
   carImage05: carImage05,
   carImage06: carImage06,
+};
+
+export const searchResultImage = {
+  searchImage: searchImage,
 };
