@@ -18,6 +18,14 @@ import chooseIcon04 from "./icons/WCU04.png";
 
 import suggestedImage from "./Carento.png";
 
+import carCoverImage from "./carImages/cover-image.png";
+import carImage01 from "./carImages/Carento.png";
+import carImage02 from "./carImages/Carento (2).png";
+import carImage03 from "./carImages/Carento (3).png";
+import carImage04 from "./carImages/Carento (4).png";
+import carImage05 from "./carImages/Carento (5).png";
+import carImage06 from "./carImages/Carento (1).png";
+
 export const heroSlider = {
   slider01: slider01,
   slider02: slider02,
@@ -48,4 +56,14 @@ export const whyChooseUsIcons = {
 
 export const suggestedCarImage = {
   suggestedImage: suggestedImage,
+};
+
+export const allCarImages = {
+  carCoverImage: carCoverImage,
+  carImage01: carImage01,
+  carImage02: carImage02,
+  carImage03: carImage03,
+  carImage04: carImage04,
+  carImage05: carImage05,
+  carImage06: carImage06,
 };

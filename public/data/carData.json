@@ -1,0 +1,815 @@
+[
+  {
+    "id": "hyundai-accent-2015",
+    "make": "Hyundai",
+    "model": "Accent",
+    "year": 2015,
+    "type": "Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 2,
+    "price": {
+      "daily": 29500,
+      "weekly": 185000,
+      "monthly": 720000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.85,
+      "totalReviews": 233,
+      "breakdown": {
+        "5stars": 233,
+        "4stars": 100,
+        "3stars": 100,
+        "2stars": 80,
+        "1star": 10
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input"
+    ],
+    "specifications": {
+      "engineSize": "1.6L",
+      "horsepower": 138,
+      "fuelEfficiency": "7.8L/100km",
+      "color": "Silver"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Gulshan Avenue"
+    },
+    "host": {
+      "id": "host-001",
+      "name": "Emily Ross",
+      "memberSince": "2015-07-01",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 12,
+      "responseTime": "Within an hour"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "200km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 43
+  },
+  {
+    "id": "toyota-corolla-2018",
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2018,
+    "type": "Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "price": {
+      "daily": 35000,
+      "weekly": 220000,
+      "monthly": 850000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.92,
+      "totalReviews": 418,
+      "breakdown": {
+        "5stars": 380,
+        "4stars": 25,
+        "3stars": 8,
+        "2stars": 3,
+        "1star": 2
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "USB Port",
+      "Sunroof",
+      "Heated Seats"
+    ],
+    "specifications": {
+      "engineSize": "1.8L",
+      "horsepower": 140,
+      "fuelEfficiency": "7.1L/100km",
+      "color": "White"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Banani"
+    },
+    "host": {
+      "id": "host-002",
+      "name": "Michael Chen",
+      "memberSince": "2016-03-15",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 8,
+      "responseTime": "Within 30 minutes"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "250km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 38
+  },
+  {
+    "id": "honda-civic-2020",
+    "make": "Honda",
+    "model": "Civic",
+    "year": 2020,
+    "type": "Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 2,
+    "price": {
+      "daily": 42000,
+      "weekly": 270000,
+      "monthly": 1050000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.78,
+      "totalReviews": 156,
+      "breakdown": {
+        "5stars": 125,
+        "4stars": 20,
+        "3stars": 7,
+        "2stars": 3,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof"
+    ],
+    "specifications": {
+      "engineSize": "2.0L",
+      "horsepower": 158,
+      "fuelEfficiency": "6.7L/100km",
+      "color": "Black"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Dhanmondi"
+    },
+    "host": {
+      "id": "host-001",
+      "name": "Emily Ross",
+      "memberSince": "2015-07-01",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 12,
+      "responseTime": "Within an hour"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "300km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 52
+  },
+  {
+    "id": "toyota-rav4-2019",
+    "make": "Toyota",
+    "model": "RAV4",
+    "year": 2019,
+    "type": "SUV",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 4,
+    "price": {
+      "daily": 55000,
+      "weekly": 360000,
+      "monthly": 1400000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.95,
+      "totalReviews": 287,
+      "breakdown": {
+        "5stars": 270,
+        "4stars": 12,
+        "3stars": 3,
+        "2stars": 1,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Bluetooth",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "Apple CarPlay",
+      "Android Auto",
+      "All-Wheel Drive"
+    ],
+    "specifications": {
+      "engineSize": "2.5L",
+      "horsepower": 203,
+      "fuelEfficiency": "8.6L/100km",
+      "color": "Blue"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Uttara"
+    },
+    "host": {
+      "id": "host-003",
+      "name": "Sarah Ahmed",
+      "memberSince": "2017-09-20",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 15,
+      "responseTime": "Within 2 hours"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "250km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 2,
+    "totalPhotos": 47
+  },
+  {
+    "id": "nissan-altima-2017",
+    "make": "Nissan",
+    "model": "Altima",
+    "year": 2017,
+    "type": "Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "price": {
+      "daily": 32000,
+      "weekly": 200000,
+      "monthly": 780000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.65,
+      "totalReviews": 92,
+      "breakdown": {
+        "5stars": 70,
+        "4stars": 15,
+        "3stars": 5,
+        "2stars": 1,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input"
+    ],
+    "specifications": {
+      "engineSize": "2.5L",
+      "horsepower": 179,
+      "fuelEfficiency": "7.9L/100km",
+      "color": "Gray"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Mirpur"
+    },
+    "host": {
+      "id": "host-004",
+      "name": "David Kumar",
+      "memberSince": "2018-01-10",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 6,
+      "responseTime": "Within an hour"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "200km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 35
+  },
+  {
+    "id": "mazda-cx5-2021",
+    "make": "Mazda",
+    "model": "CX-5",
+    "year": 2021,
+    "type": "SUV",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 4,
+    "price": {
+      "daily": 62000,
+      "weekly": 400000,
+      "monthly": 1550000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.88,
+      "totalReviews": 175,
+      "breakdown": {
+        "5stars": 155,
+        "4stars": 15,
+        "3stars": 3,
+        "2stars": 1,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto",
+      "All-Wheel Drive",
+      "Leather Seats"
+    ],
+    "specifications": {
+      "engineSize": "2.5L",
+      "horsepower": 187,
+      "fuelEfficiency": "8.1L/100km",
+      "color": "Red"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Gulshan"
+    },
+    "host": {
+      "id": "host-002",
+      "name": "Michael Chen",
+      "memberSince": "2016-03-15",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 8,
+      "responseTime": "Within 30 minutes"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "300km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 2,
+    "totalPhotos": 58
+  },
+  {
+    "id": "ford-escape-2019",
+    "make": "Ford",
+    "model": "Escape",
+    "year": 2019,
+    "type": "SUV",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "price": {
+      "daily": 48000,
+      "weekly": 310000,
+      "monthly": 1200000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.72,
+      "totalReviews": 128,
+      "breakdown": {
+        "5stars": 98,
+        "4stars": 22,
+        "3stars": 5,
+        "2stars": 2,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Apple CarPlay",
+      "Android Auto"
+    ],
+    "specifications": {
+      "engineSize": "1.5L Turbo",
+      "horsepower": 180,
+      "fuelEfficiency": "8.3L/100km",
+      "color": "Silver"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Mohakhali"
+    },
+    "host": {
+      "id": "host-005",
+      "name": "Jessica Rahman",
+      "memberSince": "2019-05-22",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 10,
+      "responseTime": "Within an hour"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "250km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 41
+  },
+  {
+    "id": "bmw-3series-2020",
+    "make": "BMW",
+    "model": "3 Series",
+    "year": 2020,
+    "type": "Luxury Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 2,
+    "price": {
+      "daily": 85000,
+      "weekly": 550000,
+      "monthly": 2100000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.93,
+      "totalReviews": 68,
+      "breakdown": {
+        "5stars": 62,
+        "4stars": 4,
+        "3stars": 1,
+        "2stars": 1,
+        "1star": 0
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto",
+      "Leather Seats",
+      "Parking Assist",
+      "Premium Sound"
+    ],
+    "specifications": {
+      "engineSize": "2.0L Turbo",
+      "horsepower": 255,
+      "fuelEfficiency": "7.5L/100km",
+      "color": "Black"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Banani"
+    },
+    "host": {
+      "id": "host-006",
+      "name": "Alexander Price",
+      "memberSince": "2018-11-08",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 5,
+      "responseTime": "Within 2 hours"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "200km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 3,
+    "totalPhotos": 65
+  },
+  {
+    "id": "volkswagen-jetta-2016",
+    "make": "Volkswagen",
+    "model": "Jetta",
+    "year": 2016,
+    "type": "Sedan",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "price": {
+      "daily": 28000,
+      "weekly": 175000,
+      "monthly": 680000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.58,
+      "totalReviews": 85,
+      "breakdown": {
+        "5stars": 60,
+        "4stars": 18,
+        "3stars": 5,
+        "2stars": 1,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "Child Seat Available",
+      "Cruise Control",
+      "USB Port",
+      "AUX Input"
+    ],
+    "specifications": {
+      "engineSize": "1.4L Turbo",
+      "horsepower": 150,
+      "fuelEfficiency": "7.3L/100km",
+      "color": "White"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Badda"
+    },
+    "host": {
+      "id": "host-007",
+      "name": "Fatima Khan",
+      "memberSince": "2019-08-14",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 7,
+      "responseTime": "Within an hour"
+    },
+    "availability": false,
+    "status": "rented",
+    "mileageLimit": "200km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 1,
+    "totalPhotos": 32
+  },
+  {
+    "id": "kia-sportage-2021",
+    "make": "Kia",
+    "model": "Sportage",
+    "year": 2021,
+    "type": "SUV",
+    "transmission": "Automatic",
+    "fuelType": "Gasoline",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 4,
+    "price": {
+      "daily": 58000,
+      "weekly": 380000,
+      "monthly": 1480000,
+      "currency": "CFA"
+    },
+    "rating": {
+      "overall": 4.81,
+      "totalReviews": 142,
+      "breakdown": {
+        "5stars": 118,
+        "4stars": 18,
+        "3stars": 4,
+        "2stars": 1,
+        "1star": 1
+      }
+    },
+    "coverImage": "/images/carImages/cover-image.png",
+    "carImages": [
+      "/images/carImages/Carento.png",
+      "/images/carImages/Carento (2).png",
+      "/images/carImages/Carento (3).png",
+      "/images/carImages/Carento (4).png",
+      "/images/carImages/Carento (5).png",
+      "/images/carImages/Carento (1).png"
+    ],
+    "features": [
+      "Air Conditioning",
+      "Bluetooth",
+      "GPS Navigation",
+      "Child Seat Available",
+      "Cruise Control",
+      "Backup Camera",
+      "USB Port",
+      "AUX Input",
+      "Sunroof",
+      "Heated Seats",
+      "Apple CarPlay",
+      "Android Auto"
+    ],
+    "specifications": {
+      "engineSize": "2.4L",
+      "horsepower": 181,
+      "fuelEfficiency": "8.5L/100km",
+      "color": "Green"
+    },
+    "includedInPrice": [
+      "Rental Price (All Taxes Included)",
+      "Free Pickup & Drop-off",
+      "Limited Mileage",
+      "Most Popular Fuel Policy",
+      "Air Conditioning & Transmission"
+    ],
+    "location": {
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "address": "Gulshan"
+    },
+    "host": {
+      "id": "host-003",
+      "name": "Sarah Ahmed",
+      "memberSince": "2017-09-20",
+      "avatar": "/images/hostImage.png",
+      "totalCars": 15,
+      "responseTime": "Within 2 hours"
+    },
+    "availability": true,
+    "status": "available",
+    "mileageLimit": "250km/day",
+    "insuranceIncluded": true,
+    "minimumRentalDays": 2,
+    "totalPhotos": 49
+  }
+]
