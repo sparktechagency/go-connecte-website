@@ -34,6 +34,7 @@ import carImage06 from "./carImages/Carento (1).png";
 
 import searchImage from "./carImages/Volkswagen Golf 2018.png";
 import bgCover from "./bg-cover.png";
+import faqImage from "./faqImage.png";
 
 export const heroSlider = {
   slider01: slider01,
@@ -83,6 +84,9 @@ export const searchResultImage = {
 
 export const bgCovertImage = {
   bgCover: bgCover,
+};
+export const imageFaq = {
+  faqImage: faqImage,
 };
 
 export const aboutUs = {
