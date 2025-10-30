@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { MdHome } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
@@ -46,15 +46,20 @@ export default function CarDetails() {
 
   const { cars, loading, error } = useCars();
 
+  const today = dayjs();
+
   const [value, setValue] = useState("about");
-  const [fromDate, setFromDate] = useState(dayjs("2022-04-17"));
-  const [fromTime, setFromTime] = useState(dayjs("2022-04-17"));
-  const [toDate, setToDate] = useState(dayjs("2022-04-17"));
-  const [toTime, setToTime] = useState(dayjs("2022-04-17"));
+
+  const [fromDate, setFromDate] = useState(null);
+  const [fromTime, setFromTime] = useState(null);
+  const [toDate, setToDate] = useState(null);
+  const [toTime, setToTime] = useState(null);
+
   const [open, setOpen] = useState(false);
   const [location, setLocation] = useState(
     "John F. Kennedy International Airport"
   );
+  const router = useRouter();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -85,7 +90,7 @@ export default function CarDetails() {
     </Link>,
     <Link
       key="cars"
-      href="/"
+      href="/#suggested"
       className="flex items-center gap-1 text-gray-600 hover:text-[#00AEA8] transition  text-xs sm:text-base"
     >
       {/* <DirectionsCarIcon sx={{ fontSize: 18 }} /> */}
@@ -95,6 +100,41 @@ export default function CarDetails() {
       {car ? `${car.make} ${car.model} (${car.year})` : "Loading..."}
     </p>,
   ];
+
+  const handleBooking = () => {
+    if (!fromDate || !fromTime || !toDate || !toTime) {
+      toast.warning("Please choose start and end date and time.");
+      return;
+    }
+
+    if (!location || location.trim() === "") {
+      toast.warning("Please provide a pickup/return location.");
+      return;
+    }
+
+    const start = fromDate
+      .hour(fromTime.hour())
+      .minute(fromTime.minute())
+      .second(0);
+    const end = toDate.hour(toTime.hour()).minute(toTime.minute()).second(0);
+
+    if (end.isBefore(start)) {
+      toast.warning("End date/time must be after start date/time.");
+      return;
+    }
+
+    const bookingData = {
+      id: car.id,
+      fromDate: start.toISOString(),
+      fromTime: start.toISOString(),
+      toDate: end.toISOString(),
+      toTime: end.toISOString(),
+      location: location.trim(),
+    };
+
+    const queryString = new URLSearchParams(bookingData).toString();
+    router.push(`/book-now?${queryString}`);
+  };
 
   if (loading) {
     return (
@@ -500,6 +540,7 @@ export default function CarDetails() {
                 {car.price.daily} {car.price.currency}/Day
               </p>
               <Button
+                onClick={handleBooking}
                 fullWidth
                 sx={{
                   bgcolor: "#00AEA8",

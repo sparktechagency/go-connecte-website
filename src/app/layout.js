@@ -6,6 +6,7 @@ import { DM_Sans } from "next/font/google";
 import Footer from "@/components/Shared/Footer";
 import AnimatedCursor from "@/components/libs/AnimatedCursor";
 import { CursorProvider } from "@/components/libs/Context/CursorContext";
+import ClientToaster from "@/components/libs/ClientToaster";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={dmSans.className}>
       <body>
         <CursorProvider>
+          <ClientToaster />
           <AnimatedCursor borderColor="white" />
           <Navbar />
           {children}
