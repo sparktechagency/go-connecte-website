@@ -81,7 +81,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/faq"
+                href="/frequently-asked-questions"
                 className="hover:text-[#00AEA8] transition-colors inline-block"
               >
                 Frequently Asked Questions
