@@ -128,7 +128,7 @@ export default function Navbar() {
                 >
                   {[
                     {
-                      href: "/favourites",
+                      href: "/profile/favourite",
                       label: "Favourites",
                       icon: <LuHeart />,
                     },

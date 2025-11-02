@@ -12,7 +12,20 @@ export default function Home() {
     <div>
       <HeroSection />
       <AboutUs />
-      <Suggested />
+      <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 ">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              Suggested For You
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600">
+              Our top picks for comfort, style, and reliability.
+            </p>
+          </div>
+          <Suggested />
+        </div>
+      </div>
       <WhyChooseUs />
       <div className="bg-gray-50 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 ">
         {/* Header */}
