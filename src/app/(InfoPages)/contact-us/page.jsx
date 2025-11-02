@@ -79,7 +79,7 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start bg-[url('/images/bg.png')] bg-cover bg-center">
+            <div className="bg-white rounded-2xl shadow-sm p-6 md:p-7 grid grid-cols-1 md:grid-cols-3 gap-6 items-start bg-[url('/images/bg.png')] bg-cover bg-center">
               <div className="md:col-span-1 flex justify-center items-start">
                 <div className="w-full max-w-md rounded-lg overflow-hidden shadow-md">
                   <Image
@@ -139,7 +139,7 @@ export default function ContactPage() {
                       type="submit"
                       disabled={loading}
                       sx={{
-                        borderRadius: "12px",
+                        borderRadius: "5px",
                         bgcolor: "#00AEA8",
                         color: "white",
                         width: { xs: "100%", sm: "50%" },

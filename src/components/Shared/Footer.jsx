@@ -106,15 +106,15 @@ export default function Footer() {
           <ul className="space-y-2 sm:space-y-3 text-[#E4E7EC] text-xs sm:text-sm">
             <li className="flex items-center gap-2 sm:gap-3 justify-start">
               <FaPhoneVolume className="text-lg sm:text-xl shrink-0" />
-              <span className="break-all">info@goconnecte.com</span>
+              <span className="break-all">+234 912 230 8240</span>
             </li>
             <li className="flex items-center gap-2 sm:gap-3 justify-start">
               <FaWhatsapp className="text-lg sm:text-xl shrink-0" />
-              <span>+880 123-456-789</span>
+              <span>+234 810 348 4586</span>
             </li>
             <li className="flex items-center gap-2 sm:gap-3 justify-start">
               <MdMailOutline className="text-lg sm:text-xl shrink-0" />
-              <span>Dhaka, Bangladesh</span>
+              <span>example@carrental.com</span>
             </li>
           </ul>
         </div>
