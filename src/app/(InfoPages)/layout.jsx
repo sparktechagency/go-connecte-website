@@ -13,6 +13,11 @@ export default function InfoPagesLayout({ children }) {
     "/terms-and-conditions": "T&C",
     "/frequently-asked-questions": "FAQs",
     "/about-us": "About Us",
+    "/profile/favourite": (
+      <div className="flex items-center gap-1">
+        Profile <IoIosArrowForward /> Favourite
+      </div>
+    ),
   };
 
   const slug = pathname.split("/").pop() || "Page";
