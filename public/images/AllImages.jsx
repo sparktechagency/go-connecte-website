@@ -15,6 +15,7 @@ import aboutUsImage06 from "./About Us/about us image (6).png";
 import aboutIcon01 from "./icons/icon-about-trusted-1.svg.png";
 import aboutIcon02 from "./icons/icon-about-trusted-2.svg.png";
 
+import contactImage from "./contact-image.png";
 import whyChooseUs from "./why-choose-img.png";
 
 import chooseIcon01 from "./icons/WCU01.png";
@@ -55,6 +56,10 @@ export const aboutUsIcons = {
 
 export const whyChooseUsImage = {
   whyChooseUs: whyChooseUs,
+};
+
+export const contactUsImage = {
+  contactImage: contactImage,
 };
 
 export const whyChooseUsIcons = {
