@@ -42,7 +42,7 @@ export default function InfoPagesLayout({ children }) {
 
           {/* Title & Breadcrumb – Centered */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold drop-shadow-2xl text-center capitalize">
+            <h1 className="text-2xl sm:text-5xl lg:text-6xl font-bold drop-shadow-2xl text-center capitalize">
               {/* {pageName.replace("-", " ")} */}
               {fallbackTitle}
             </h1>
