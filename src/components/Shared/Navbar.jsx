@@ -128,11 +128,15 @@ export default function Navbar() {
                 >
                   {[
                     {
-                      href: "/favourites",
+                      href: "/profile/favourite",
                       label: "Favourites",
                       icon: <LuHeart />,
                     },
-                    { href: "/trips", label: "Trips", icon: <TbRoad /> },
+                    {
+                      href: "/profile/trips",
+                      label: "Trips",
+                      icon: <TbRoad />,
+                    },
                     { href: "/inbox", label: "Inbox", icon: <FaRegMessage /> },
                   ].map((link) => (
                     <Link

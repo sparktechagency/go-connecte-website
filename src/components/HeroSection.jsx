@@ -37,7 +37,6 @@ export default function HeroSection() {
     autoplay: true,
     autoplaySpeed: 2000,
     // arrows: true,
-    // responsive breakpoints are optional for more control over arrows/dots
     responsive: [
       { breakpoint: 1024, settings: { arrows: false, dots: true } },
       { breakpoint: 640, settings: { arrows: false, dots: true } },
@@ -45,16 +44,11 @@ export default function HeroSection() {
   };
 
   return (
-    // make sure the parent doesn't add horizontal padding; keep overflow-hidden to avoid scrollbar
     <section className="relative overflow-hidden">
-      {/* <AnimatedCursor borderColor="white" /> */}
       <div className="w-screen">
         <Slider {...settings}>
           {slides.map((slide) => (
             <div key={slide.id} className="relative">
-              {/* Responsive heights:
-                  mobile ~60vh, tablet ~70vh, desktop ~90-100vh.
-                  Adjust values to taste. */}
               <div className="relative w-screen h-[75vh] sm:h-[80vh] lg:h-[90vh]">
                 <Image
                   src={slide.image}

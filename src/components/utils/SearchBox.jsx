@@ -10,8 +10,11 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import dayjs from "dayjs";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function SearchBox() {
+  const router = useRouter();
   const [fromDate, setFromDate] = useState(dayjs(new Date()));
   const [toDate, setToDate] = useState(
     dayjs(new Date().setDate(new Date().getDate() + 1))
@@ -47,6 +50,16 @@ export default function SearchBox() {
 
   const handleSearch = () => {
     console.log("Searching for:", { location, fromDate, toDate });
+    if (!fromDate || !toDate || !location) {
+      toast.warning("Please choose destination and date and time.");
+      return;
+    }
+    const params = new URLSearchParams({
+      location,
+      from: fromDate.format("YYYY-MM-DDTHH:mm"),
+      to: toDate.format("YYYY-MM-DDTHH:mm"),
+    });
+    router.push(`/results?${params.toString()}`);
   };
 
   return (
@@ -95,6 +108,71 @@ export default function SearchBox() {
                     }
                   }}
                   slotProps={{
+                    day: {
+                      sx: {
+                        "&.MuiPickersDay-root.Mui-selected": {
+                          backgroundColor: "#00AEA8",
+                        },
+                      },
+                    },
+                    popper: {
+                      sx: {
+                        "& .MuiMenuItem-root": {
+                          "&.Mui-selected": {
+                            backgroundColor: "#00AEA8",
+                            color: "white",
+                          },
+                          color: "black",
+                        },
+                      },
+                    },
+                    textField: {
+                      sx: fieldSx,
+                    },
+                    actionBar: {
+                      sx: {
+                        padding: "10px",
+                        gap: "10px",
+                        justifyContent: "space-between",
+                        "& .MuiButton-root": {
+                          flex: 1,
+                          borderRadius: "9999px",
+                          fontWeight: "600",
+                          fontSize: { xs: "11px", sm: "12px" },
+                          textTransform: "capitalize",
+                          padding: { xs: "6px", sm: "8px" },
+                        },
+                        "& .MuiButton-root:first-of-type": {
+                          color: "#d32f2f",
+                          backgroundColor: "#ffebee",
+                          "&:hover": { backgroundColor: "#ffcdd2" },
+                        },
+                        "& .MuiButton-root:last-of-type": {
+                          backgroundColor: "#00AEA8",
+                          color: "white",
+                          "&:hover": { backgroundColor: "#0d9488" },
+                        },
+                      },
+                    },
+                  }}
+                />
+              </div>
+
+              {/* To DateTime */}
+              <div className="w-full">
+                <MobileDateTimePicker
+                  value={toDate}
+                  label="To"
+                  onChange={(newValue) => setToDate(newValue)}
+                  minDateTime={fromDate}
+                  slotProps={{
+                    day: {
+                      sx: {
+                        "&.MuiPickersDay-root.Mui-selected": {
+                          backgroundColor: "#00AEA8",
+                        },
+                      },
+                    },
                     popper: {
                       sx: {
                         "& .MuiPaper-root": {
@@ -103,9 +181,7 @@ export default function SearchBox() {
                         },
                         "& .MuiPickersDay-root": {
                           borderRadius: "8px",
-                          "&:hover": {
-                            backgroundColor: "#14b8a6",
-                          },
+                          "&:hover": { backgroundColor: "#14b8a6" },
                           "&.Mui-selected": {
                             backgroundColor: "#14b8a6",
                             fontWeight: "bold",
@@ -135,63 +211,7 @@ export default function SearchBox() {
                           "&:hover": { backgroundColor: "#ffcdd2" },
                         },
                         "& .MuiButton-root:last-of-type": {
-                          backgroundColor: "#14b8a6",
-                          color: "white",
-                          "&:hover": { backgroundColor: "#0d9488" },
-                        },
-                      },
-                    },
-                  }}
-                />
-              </div>
-
-              {/* To DateTime */}
-              <div className="w-full">
-                <MobileDateTimePicker
-                  value={toDate}
-                  label="To"
-                  onChange={(newValue) => setToDate(newValue)}
-                  minDateTime={fromDate}
-                  slotProps={{
-                    popper: {
-                      sx: {
-                        "& .MuiPaper-root": {
-                          borderRadius: "16px",
-                          boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-                        },
-                        "& .MuiPickersDay-root": {
-                          borderRadius: "8px",
-                          "&:hover": { backgroundColor: "#14b8a6" },
-                          "&.Mui-selected": {
-                            backgroundColor: "#14b8a6",
-                            fontWeight: "bold",
-                          },
-                        },
-                      },
-                    },
-                    textField: {
-                      sx: fieldSx,
-                    },
-                    actionBar: {
-                      sx: {
-                        padding: "10px",
-                        gap: "10px",
-                        justifyContent: "space-between",
-                        "& .MuiButton-root": {
-                          flex: 1,
-                          borderRadius: "50%",
-                          fontWeight: "600",
-                          fontSize: { xs: "11px", sm: "12px" },
-                          textTransform: "capitalize",
-                          padding: { xs: "6px", sm: "8px" },
-                        },
-                        "& .MuiButton-root:first-of-type": {
-                          color: "#d32f2f",
-                          backgroundColor: "#ffebee",
-                          "&:hover": { backgroundColor: "#ffcdd2" },
-                        },
-                        "& .MuiButton-root:last-of-type": {
-                          backgroundColor: "#14b8a6",
+                          backgroundColor: "#00AEA8",
                           color: "white",
                           "&:hover": { backgroundColor: "#0d9488" },
                         },

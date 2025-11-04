@@ -16,9 +16,9 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
-import { useCars } from "./libs/hooks/useCars";
+import { useCars } from "@/components/libs/hooks/useCars";
 
-export default function Suggested() {
+export default function Favourite() {
   const { cars, loading, error } = useCars();
   const [favorites, setFavorites] = useState({});
   const [showAll, setShowAll] = useState(false);
@@ -39,7 +39,10 @@ export default function Suggested() {
   if (loading) return <CircularProgress />;
 
   return (
-    <section id="suggested">
+    <section
+      id="suggested"
+      className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">

@@ -5,10 +5,17 @@ import slider04 from "./HeroImage/slider04.jpg";
 
 import aboutUs01 from "./aboutUs01.png";
 import aboutUs02 from "./aboutUs02.png";
+import aboutUsImage01 from "./About Us/about us image (1).png";
+import aboutUsImage02 from "./About Us/about us image (2).png";
+import aboutUsImage03 from "./About Us/about us image (3).png";
+import aboutUsImage04 from "./About Us/about us image (4).png";
+import aboutUsImage05 from "./About Us/about us image (5).png";
+import aboutUsImage06 from "./About Us/about us image (6).png";
 
 import aboutIcon01 from "./icons/icon-about-trusted-1.svg.png";
 import aboutIcon02 from "./icons/icon-about-trusted-2.svg.png";
 
+import contactImage from "./contact-image.png";
 import whyChooseUs from "./why-choose-img.png";
 
 import chooseIcon01 from "./icons/WCU01.png";
@@ -25,6 +32,10 @@ import carImage03 from "./carImages/Carento (3).png";
 import carImage04 from "./carImages/Carento (4).png";
 import carImage05 from "./carImages/Carento (5).png";
 import carImage06 from "./carImages/Carento (1).png";
+
+import searchImage from "./carImages/Volkswagen Golf 2018.png";
+import bgCover from "./bg-cover.png";
+import faqImage from "./faqImage.png";
 
 export const heroSlider = {
   slider01: slider01,
@@ -47,6 +58,10 @@ export const whyChooseUsImage = {
   whyChooseUs: whyChooseUs,
 };
 
+export const contactUsImage = {
+  contactImage: contactImage,
+};
+
 export const whyChooseUsIcons = {
   chooseIcon01: chooseIcon01,
   chooseIcon02: chooseIcon02,
@@ -66,4 +81,24 @@ export const allCarImages = {
   carImage04: carImage04,
   carImage05: carImage05,
   carImage06: carImage06,
+};
+
+export const searchResultImage = {
+  searchImage: searchImage,
+};
+
+export const bgCovertImage = {
+  bgCover: bgCover,
+};
+export const imageFaq = {
+  faqImage: faqImage,
+};
+
+export const aboutUs = {
+  aboutUsImage01: aboutUsImage01,
+  aboutUsImage02: aboutUsImage02,
+  aboutUsImage03: aboutUsImage03,
+  aboutUsImage04: aboutUsImage04,
+  aboutUsImage05: aboutUsImage05,
+  aboutUsImage06: aboutUsImage06,
 };

@@ -165,9 +165,9 @@ export default function CarDetails() {
   return (
     <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg mt-5">
       <div className="mb-6">
-        <Breadcrumbs separator="›" aria-label="breadcrumb">
+        {/* <Breadcrumbs separator="›" aria-label="breadcrumb">
           {breadcrumbs}
-        </Breadcrumbs>
+        </Breadcrumbs> */}
       </div>{" "}
       {/* Car Image */}
       <div className="relative h-64 md:h-96 mb-4 rounded-lg overflow-hidden">
