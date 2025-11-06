@@ -57,10 +57,10 @@ export default function ContactPage() {
 
   return (
     <>
-      <main className="max-w-7xl mx-auto p-6 md:p-10">
+      <main className="max-w-7xl mx-auto px-6 md:px-10 py-5 sm:py-10 lg:py-20">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           {/* Left contact cards */}
-          <div className="space-y-6 lg:col-span-1">
+          <div className="space-y-3 sm:space-y-6 lg:col-span-1">
             <ContactCard
               title="Contact"
               subtitle="+234 912 230 8240"
