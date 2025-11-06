@@ -2,5 +2,7 @@
 import { Toaster } from "sonner";
 
 export default function ClientToaster() {
-  return <Toaster position="top-right" richColors />;
+  return (
+    <Toaster expand={true} position="top-right" richColors visibleToasts={5} />
+  );
 }
