@@ -99,7 +99,11 @@ function getStatusConfig(status) {
 function TripCard({ trip }) {
   const statusConfig = getStatusConfig(trip.status);
   return (
-    <article className="flex gap-4 items-center rounded-lg bg-white px-4 py-4 border border-[#D0D0D0] hover:border-t hover:border-l-4 hover:border-r hover:border-b hover:border-[#00AEA8] transition-all duration-300 hover:scale-105">
+    <article
+      className="flex gap-4 items-center rounded-lg bg-white px-4 py-4
+      border border-[#D0D0D0] hover:border-t hover:border-l-4 hover:border-r
+      hover:border-b hover:border-[#00AEA8] transition-all duration-300 hover:scale-105"
+    >
       <div className="w-24 h-20 sm:w-28 sm:h-20 rounded-md overflow-hidden bg-gray-100">
         <Image
           src={trip.image}
@@ -157,7 +161,7 @@ function TripCard({ trip }) {
 
           <div className="flex items-center gap-3">
             {trip.price > 0 ? (
-              <span className="text-teal-600 font-semibold text-base">
+              <span className="text-[#009E99] font-semibold text-base">
                 {trip.currency}
                 {trip.price.toLocaleString()}
               </span>
