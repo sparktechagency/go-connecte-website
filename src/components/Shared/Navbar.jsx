@@ -10,10 +10,9 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { LuHeart } from "react-icons/lu";
 import { TbRoad } from "react-icons/tb";
-import { FaRegMessage } from "react-icons/fa6";
+import { FaRegMessage, FaHeadphones } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import { GoArrowSwitch } from "react-icons/go";
-import { FaHeadphones } from "react-icons/fa6";
 import { CgNotes } from "react-icons/cg";
 
 import { usePathname } from "next/navigation";
@@ -21,30 +20,26 @@ import { Button, Divider } from "@mui/material";
 import useLogIn from "../libs/hooks/useLogIn";
 
 export default function Navbar() {
+  const { user, logOut, loading } = useLogIn();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { user, logOut } = useLogIn();
   const pathname = usePathname();
 
+  console.log(user);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const handleDropdownOpen = () => {
-    setIsDropdownOpen(true);
+    setIsDropdownOpen(!isMobileMenuOpen);
   };
 
   const handleDropdownClose = () => {
-    setIsDropdownOpen(false);
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
-  };
-
-  const handleLogOut = () => {
-    // Add your logout logic here
-    console.log("Logging out...");
   };
 
   const dropdownVariants = {
@@ -223,7 +218,7 @@ export default function Navbar() {
                       >
                         {link.icon} {link.label}
                       </Link>
-                    ))}{" "}
+                    ))}
                     <Divider variant="middle" />
                     <Button
                       sx={{
@@ -241,7 +236,7 @@ export default function Navbar() {
 
                         "&:hover": { backgroundColor: "#e5e7eb" },
                       }}
-                      onClick={handleLogOut}
+                      onClick={logOut}
                     >
                       <FiLogOut />
                       Log Out

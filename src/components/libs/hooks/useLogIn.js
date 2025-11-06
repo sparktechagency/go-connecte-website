@@ -1,17 +1,18 @@
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export default function useLogIn() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
-  // Check if the user is already logged in from localStorage
+  // Check if the user is already logged in from sessionStorage
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const raw = localStorage.getItem("demo_user");
-      if (raw) {
-        setUser(JSON.parse(raw));
-      }
+    const storedUser = sessionStorage.getItem("demo_user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
   }, []);
 
@@ -20,15 +21,16 @@ export default function useLogIn() {
     setError("");
     try {
       // Simple validation for demo purposes
-      if (email === "demo@site.com" && password === "123456") {
+      if (email === "abc@gmail.com" && password === "123456") {
         const u = { id: "1", name: "Demo User", email };
         setUser(u);
-        localStorage.setItem("demo_user", JSON.stringify(u));
-        return u;
+        sessionStorage.setItem("demo_user", JSON.stringify(u));
+        toast.success("Log In Succesfull");
+        router.push("/");
       }
-      throw new Error("Invalid email or password");
     } catch (e) {
       setError(e.message || "Login failed");
+      toast.error(e.message);
       return null;
     } finally {
       setLoading(false);
@@ -37,7 +39,8 @@ export default function useLogIn() {
 
   const logOut = () => {
     if (typeof window !== "undefined") {
-      localStorage.removeItem("demo_user");
+      sessionStorage.removeItem("demo_user");
+      toast.success("Logged Out Successfully");
       setUser(null);
     }
   };
