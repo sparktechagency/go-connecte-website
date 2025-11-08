@@ -1,6 +1,5 @@
 "use client";
 
-import useLogIn from "@/components/libs/hooks/useLogIn";
 import {
   Button,
   Divider,
@@ -9,13 +8,13 @@ import {
   TextField,
 } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import { toast } from "sonner";
 
 export default function SignUp() {
-  const { user, loading, error, logIn } = useLogIn();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -23,6 +22,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const router = useRouter();
 
   const handleShowNewPassword = () => setShowPassword((prev) => !prev);
   const handleShowConfirmPassword = () =>
@@ -50,7 +50,14 @@ export default function SignUp() {
       toast.error("Please confirm your password");
     }
 
-    await logIn(name, email, phone, password, confirmPassword);
+    try {
+      console.log(name, email, phone, password, confirmPassword);
+      toast.success("Please sign in to continue.");
+      toast.success("Registration Successfull.");
+      router.push("sign-in");
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -437,13 +444,10 @@ export default function SignUp() {
               },
             }}
             type="submit"
-            disabled={loading}
           >
             Register
           </Button>
         </form>
-
-        {error && <p className="text-center text-red-500 mt-2">{error}</p>}
 
         <div className="flex items-center gap-1 justify-center text-xs sm:text-sm">
           <p className=" text-[#828A99]">Already have an account? </p>

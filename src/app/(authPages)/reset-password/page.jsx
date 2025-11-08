@@ -9,6 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
@@ -16,6 +17,7 @@ import { toast } from "sonner";
 
 export default function ResetPassword() {
   const [email, setEmail] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +28,12 @@ export default function ResetPassword() {
       toast.error("Please enter a valid email address");
     }
 
-    await logIn(email);
+    try {
+      console.log(email);
+      router.push("/");
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
