@@ -100,7 +100,7 @@ export default function Security() {
       <p className="text-[#191919] text-lg sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4">
         Security Settings
       </p>
-      <div className="border border-[#E5E7EB] rounded-lg p-3 sm:p-4 md:p-5 lg:p-6">
+      <div className="border border-[#E5E7EB] rounded-lg p-3 sm:p-4 md:p-5 lg:p-6 xl:w-1/2">
         <div className="flex items-start sm:items-center gap-2 sm:gap-3">
           <div className="bg-[#00AEA81A] p-2 sm:p-2.5 md:p-3 rounded-full shrink-0">
             <FiLock className="text-base sm:text-lg md:text-xl text-[#00AEA8]" />

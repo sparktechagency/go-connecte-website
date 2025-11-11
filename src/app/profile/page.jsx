@@ -20,6 +20,7 @@ import {
 import { MdOutlineVerifiedUser, MdOutlinePhotoCamera } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 import { CiCalendar } from "react-icons/ci";
+import Verifications from "@/components/profileComponents/Verifications";
 
 export default function Profile() {
   const [value, setValue] = useState(0);
@@ -232,7 +233,7 @@ export default function Profile() {
         {value === 1 && <Bookings />}
         {value === 2 && <Favourites />}
         {value === 3 && <Security />}
-        {value === 4 && <PersonalInformation />}
+        {value === 4 && <Verifications />}
         {value === 5 && <PersonalInformation />}
       </div>
     </div>
