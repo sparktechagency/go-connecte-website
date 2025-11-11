@@ -76,7 +76,8 @@
     "mileageLimit": "200km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 43
+    "totalPhotos": 43,
+    "favourite": true
   },
   {
     "id": "toyota-corolla-2018",
@@ -155,7 +156,8 @@
     "mileageLimit": "250km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 38
+    "totalPhotos": 38,
+    "favourite": true
   },
   {
     "id": "honda-civic-2020",
@@ -236,7 +238,8 @@
     "mileageLimit": "300km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 52
+    "totalPhotos": 52,
+    "favourite": false
   },
   {
     "id": "toyota-rav4-2019",
@@ -315,7 +318,8 @@
     "mileageLimit": "250km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 2,
-    "totalPhotos": 47
+    "totalPhotos": 47,
+    "favourite": true
   },
   {
     "id": "nissan-altima-2017",
@@ -394,7 +398,8 @@
     "mileageLimit": "200km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 35
+    "totalPhotos": 35,
+    "favourite": true
   },
   {
     "id": "mazda-cx5-2021",
@@ -479,7 +484,8 @@
     "mileageLimit": "300km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 2,
-    "totalPhotos": 58
+    "totalPhotos": 58,
+    "favourite": false
   },
   {
     "id": "ford-escape-2019",
@@ -561,7 +567,8 @@
     "mileageLimit": "250km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 41
+    "totalPhotos": 41,
+    "favourite": false
   },
   {
     "id": "bmw-3series-2020",
@@ -648,7 +655,8 @@
     "mileageLimit": "200km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 3,
-    "totalPhotos": 65
+    "totalPhotos": 65,
+    "favourite": true
   },
   {
     "id": "volkswagen-jetta-2016",
@@ -726,7 +734,8 @@
     "mileageLimit": "200km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 1,
-    "totalPhotos": 32
+    "totalPhotos": 32,
+    "favourite": false
   },
   {
     "id": "kia-sportage-2021",
@@ -810,6 +819,7 @@
     "mileageLimit": "250km/day",
     "insuranceIncluded": true,
     "minimumRentalDays": 2,
-    "totalPhotos": 49
+    "totalPhotos": 49,
+    "favourite": false
   }
 ]

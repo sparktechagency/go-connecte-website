@@ -123,11 +123,6 @@ export default function Navbar() {
                   >
                     {[
                       {
-                        href: "/profile/favourite",
-                        label: "Favourites",
-                        icon: <LuHeart />,
-                      },
-                      {
                         href: "/profile/trips",
                         label: "Trips",
                         icon: <TbRoad />,
