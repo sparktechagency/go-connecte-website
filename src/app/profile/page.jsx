@@ -46,8 +46,8 @@ export default function Profile() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row lg:w-4/5 px-6 py-15 mx-auto">
-      <div className="bg-[#F9FAFB] w-full md:w-[40%] lg:w-[40%] 2xl:w-1/5 py-5 px-2">
+    <div className="flex flex-col md:flex-row px-6 py-15 mx-auto">
+      <div className="bg-[#F9FAFB] w-full md:w-[40%] lg:w-[35%] 2xl:w-1/5 py-5 px-2">
         <div className="flex flex-col items-center space-x-4 mb-6">
           <div className="relative border-5 border-white rounded-full ">
             <Image
@@ -227,7 +227,7 @@ export default function Profile() {
         </Tabs>
       </div>
 
-      <div className="w-full sm:px-8">
+      <div className="w-full sm:px-5">
         {value === 0 && <PersonalInformation />}
         {value === 1 && <Bookings />}
         {value === 2 && <Favourites />}

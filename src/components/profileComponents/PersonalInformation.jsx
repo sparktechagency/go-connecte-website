@@ -62,8 +62,8 @@ export default function PersonalInformation() {
   };
 
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-between bg-white py-3">
+    <div className="w-full bg-white ">
+      <div className="flex items-center justify-between py-3">
         <p className="text-[#191919] text-base sm:text-xl md:text-2xl font-semibold">
           Personal Information
         </p>
