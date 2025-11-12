@@ -47,7 +47,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row px-6 py-15 mx-auto">
+    <div className="flex flex-col md:flex-row px-6 sm:py-15 mx-auto">
       <div className="bg-[#F9FAFB] w-full md:w-[40%] lg:w-[35%] 2xl:w-1/5 py-5 px-2">
         <div className="flex flex-col items-center space-x-4 mb-6">
           <div className="relative border-5 border-white rounded-full ">
