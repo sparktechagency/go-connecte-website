@@ -185,18 +185,7 @@ export default function Navbar() {
                     <FaRegUserCircle />
                     <p>Account</p>
                   </Link>
-                  <Link
-                    href="/switch-to-host"
-                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                      pathname === "/switch-to-host"
-                        ? "bg-gray-100"
-                        : "hover:bg-gray-200"
-                    }`}
-                    onClick={handleDropdownClose}
-                  >
-                    <GoArrowSwitch />
-                    <p>Switch To Host</p>
-                  </Link>
+
                   <Divider variant="middle" />
                   {[
                     {
@@ -355,19 +344,6 @@ export default function Navbar() {
                   >
                     <FaRegUserCircle />
                     <p>Account</p>
-                  </Link>
-
-                  <Link
-                    href="/switch-to-host"
-                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                      pathname === "/switch-to-host"
-                        ? "bg-gray-100"
-                        : "hover:bg-gray-200"
-                    }`}
-                    onClick={toggleMobileMenu}
-                  >
-                    <GoArrowSwitch />
-                    <p>Switch To Host</p>
                   </Link>
 
                   <Divider variant="middle" className="my-1" />
