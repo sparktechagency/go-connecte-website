@@ -1,5 +1,5 @@
 "use client";
-import Bookings from "@/components/profileComponents/Bookings";
+import Bookings from "@/components/profileComponents/Booking/Bookings";
 import Favourites from "@/components/profileComponents/Favourites";
 import PersonalInformation from "@/components/profileComponents/PersonalInformation";
 import Security from "@/components/profileComponents/Security";
@@ -109,9 +109,14 @@ export default function Profile() {
               borderRadius: "5px",
               backgroundColor: value === 0 ? "#00AEA8" : "transparent",
               color: value === 0 ? "#fff" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
-              <div className="flex items-center gap-2 font-medium text-xs lg:text-sm">
+              <div
+                className="flex items-center gap-2 font-medium text-xs lg:text-sm"
+                style={{ verticalAlign: "start" }}
+              >
                 <FaUser
                   className={value === 0 ? "text-white" : "text-[#00AEA8]"}
                 />{" "}
@@ -127,9 +132,14 @@ export default function Profile() {
               borderRadius: "5px",
               backgroundColor: value === 1 ? "#00AEA8" : "transparent",
               color: value === 1 ? "#fff" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
-              <div className="text-start flex items-center gap-2 justify-start text-xs lg:text-sm">
+              <div
+                className="text-start flex items-center gap-2 justify-start text-xs lg:text-sm"
+                style={{ verticalAlign: "start" }}
+              >
                 <LuBookOpenText
                   className={value === 1 ? "text-white" : "text-[#00AEA8]"}
                 />{" "}
@@ -145,6 +155,8 @@ export default function Profile() {
               borderRadius: "5px",
               backgroundColor: value === 2 ? "#00AEA8" : "transparent",
               color: value === 2 ? "#fff" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
               <div className="flex items-center gap-2 text-xs lg:text-sm">
@@ -162,6 +174,8 @@ export default function Profile() {
               textTransform: "none",
               backgroundColor: value === 3 ? "#00AEA8" : "transparent",
               color: value === 3 ? "#00796b" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
               <div className="flex items-center gap-2 text-xs lg:text-sm">
@@ -179,6 +193,8 @@ export default function Profile() {
               textTransform: "none",
               backgroundColor: value === 4 ? "#00AEA8" : "transparent",
               color: value === 4 ? "#00796b" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
               <div className="flex items-center gap-2 text-xs lg:text-sm">
@@ -196,6 +212,8 @@ export default function Profile() {
               textTransform: "none",
               backgroundColor: value === 5 ? "#00AEA8" : "transparent",
               color: value === 5 ? "#00796b" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
               <div className="flex items-center gap-2 text-xs lg:text-sm">
@@ -213,6 +231,8 @@ export default function Profile() {
               textTransform: "none",
               backgroundColor: value === 6 ? "#00AEA8" : "transparent",
               color: value === 6 ? "#00796b" : "",
+              alignItems: "flex-start",
+              textAlign: "left",
             }}
             label={
               <div className="flex items-center gap-2 text-xs lg:text-sm">
