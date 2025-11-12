@@ -1,5 +1,5 @@
 "use client";
-import Bookings from "@/components/profileComponents/Bookings";
+import Bookings from "@/components/profileComponents/Booking/Bookings";
 import Favourites from "@/components/profileComponents/Favourites";
 import PersonalInformation from "@/components/profileComponents/PersonalInformation";
 import Security from "@/components/profileComponents/Security";
