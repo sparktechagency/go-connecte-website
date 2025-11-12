@@ -63,7 +63,7 @@ export default function Bookings() {
               Track your past and upcoming bookings
             </p>
           </div>
-          {!viewDetails ? (
+          {!viewDetails && (
             <div
               className="sm:mb-5 w-full xl:w-1/2"
               sx={{ mb: 3, borderBottom: 1 }}
@@ -134,16 +134,6 @@ export default function Bookings() {
                 ))}
               </Tabs>
             </div>
-          ) : (
-            <IconButton
-              onClick={closeBookingDetails}
-              sx={{
-                textTransform: "none",
-                color: "black",
-              }}
-            >
-              <IoMdCloseCircle className="text-[#00AEA8] text-2xl" />
-            </IconButton>
           )}
         </div>
 
@@ -158,7 +148,10 @@ export default function Bookings() {
             ))}
           </div>
         ) : (
-          <BookingDetails booking={selectedBooking} />
+          <BookingDetails
+            booking={selectedBooking}
+            closeBookingDetails={closeBookingDetails}
+          />
         )}
       </div>
     </main>
