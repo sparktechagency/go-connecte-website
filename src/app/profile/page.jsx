@@ -1,260 +1,116 @@
 "use client";
-import Bookings from "@/components/profileComponents/Booking/Bookings";
-import Favourites from "@/components/profileComponents/Favourites";
-import PersonalInformation from "@/components/profileComponents/PersonalInformation";
-import Security from "@/components/profileComponents/Security";
-import { Tabs, Tab, Box, IconButton } from "@mui/material";
-import Image from "next/image";
+
 import { useState } from "react";
+import { Drawer, IconButton } from "@mui/material";
+import { FaBars } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
-import image from "../../../public/images/profile.png";
-
-import { LuBookOpenText } from "react-icons/lu";
-import {
-  FaUser,
-  FaRegHeart,
-  FaLock,
-  FaCreditCard,
-  FaRegStar,
-} from "react-icons/fa";
-import { MdOutlineVerifiedUser, MdOutlinePhotoCamera } from "react-icons/md";
-import { GrLocation } from "react-icons/gr";
-import { CiCalendar } from "react-icons/ci";
+import Bookings from "@/components/profileComponents/Booking/Bookings";
+import PersonalInformation from "@/components/profileComponents/PersonalInformation";
+import Favourite from "@/components/profileComponents/Favourites";
+import Security from "@/components/profileComponents/Security";
 import Verifications from "@/components/profileComponents/Verifications";
+import Payment from "@/components/profileComponents/Payment";
+import ProfileSidebar from "@/components/profileComponents/ProfilSidebar";
 
 export default function Profile() {
-  const [value, setValue] = useState(0);
-  const [profileImage, setProfileImage] = useState(image);
+  const [profileTabValue, setProfileTabValue] = useState(0);
+  const [menuTabValue, setMenuTabValue] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleProfileTabChange = (e, newValue) => setProfileTabValue(newValue);
+  const handleMenuChange = (e, newValue) => {
+    setMenuTabValue(newValue);
+    setMobileMenuOpen(false);
   };
 
-  const handleImageChange = (event) => {
-    console.log("clicked");
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfileImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+  const renderUserTabContent = () => {
+    switch (menuTabValue) {
+      case 0:
+        return <PersonalInformation />;
+      case 1:
+        return <Bookings />;
+      case 2:
+        return <Favourite />;
+      case 3:
+        return <Security />;
+      case 4:
+        return <Verifications />;
+      case 5:
+        return <Payment />;
+      case 6:
+        return <div>Reviews Component</div>;
+      default:
+        return null;
     }
   };
 
-  const triggerFileInput = () => {
-    document.getElementById("profile-image-upload").click();
-  };
+  const renderHostModeContent = () => (
+    <div className="p-4 md:p-6">Host Mode Content Placeholder</div>
+  );
 
   return (
-    <div className="flex flex-col md:flex-row px-6 sm:py-15 mx-auto">
-      <div className="bg-[#F9FAFB] w-full md:w-[40%] lg:w-[35%] 2xl:w-1/5 py-5 px-2">
-        <div className="flex flex-col items-center space-x-4 mb-6">
-          <div className="relative border-5 border-white rounded-full ">
-            <Image
-              src={profileImage}
-              alt="Profile Picture"
-              width={100}
-              height={100}
-              className="size-28 rounded-full object-cover"
-            />
-            <input
-              type="file"
-              id="profile-image-upload"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-            />
+    <div className="flex min-h-screen bg-white">
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(true)}
+        className="fixed top-14 sm:top-20 left-2 z-50 lg:hidden bg-[#00AEA8] text-white p-2 sm:p-3 rounded shadow-lg"
+        aria-label="Open menu"
+      >
+        <FaBars className="text-sm" />
+      </button>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="left"
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            width: "80%",
+            maxWidth: "320px",
+            boxSizing: "border-box",
+          },
+        }}
+      >
+        <div className="bg-[#F9FAFB] h-full p-4 overflow-y-auto">
+          <div className="flex justify-end mb-4">
             <IconButton
-              onClick={triggerFileInput}
+              onClick={() => setMobileMenuOpen(false)}
               sx={{
-                position: "absolute",
-                bottom: 0,
-                right: 5,
-                backgroundColor: "white",
-                borderRadius: "50%",
-                padding: "6px",
-                boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.2)",
-                ":hover": {
-                  bgcolor: "#00AEA8",
-                  color: "white",
-                },
+                color: "#191919",
               }}
             >
-              <MdOutlinePhotoCamera className="text-lg text-black hover:text-white" />
+              <IoClose className="text-2xl" />
             </IconButton>
           </div>
-          <div className="flex flex-col items-start gap-1">
-            <h2 className="text-lg font-semibold">John Doe</h2>
-            <div className="flex items-center gap-2">
-              <GrLocation className="text-[#00AEA8]" />
-              <p className="text-xs text-[#4A5565] ">San Francisco, CA</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <CiCalendar className="text-[#00AEA8]" />
-              <p className="text-xs text-[#4A5565]">Joined Nov 2021</p>
-            </div>
-          </div>
+          <ProfileSidebar
+            profileTabValue={profileTabValue}
+            menuTabValue={menuTabValue}
+            onProfileTabChange={handleProfileTabChange}
+            onMenuChange={handleMenuChange}
+          />
         </div>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          orientation="vertical"
-          indicatorColor="primary"
-          textColor="inherit"
-        >
-          <Tab
-            sx={{
-              textTransform: "none",
-              borderRadius: "5px",
-              backgroundColor: value === 0 ? "#00AEA8" : "transparent",
-              color: value === 0 ? "#fff" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div
-                className="flex items-center gap-2 font-medium text-xs lg:text-sm"
-                style={{ verticalAlign: "start" }}
-              >
-                <FaUser
-                  className={value === 0 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 0 ? "text-white" : "text-[#191919]"}>
-                  Personal Information
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              borderRadius: "5px",
-              backgroundColor: value === 1 ? "#00AEA8" : "transparent",
-              color: value === 1 ? "#fff" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div
-                className="text-start flex items-center gap-2 justify-start text-xs lg:text-sm"
-                style={{ verticalAlign: "start" }}
-              >
-                <LuBookOpenText
-                  className={value === 1 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 1 ? "text-white" : "text-[#191919]"}>
-                  Bookings
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              borderRadius: "5px",
-              backgroundColor: value === 2 ? "#00AEA8" : "transparent",
-              color: value === 2 ? "#fff" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div className="flex items-center gap-2 text-xs lg:text-sm">
-                <FaRegHeart
-                  className={value === 2 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 2 ? "text-white" : "text-[#191919]"}>
-                  Favourites
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              backgroundColor: value === 3 ? "#00AEA8" : "transparent",
-              color: value === 3 ? "#00796b" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div className="flex items-center gap-2 text-xs lg:text-sm">
-                <FaLock
-                  className={value === 3 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 3 ? "text-white" : "text-[#191919]"}>
-                  Security
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              backgroundColor: value === 4 ? "#00AEA8" : "transparent",
-              color: value === 4 ? "#00796b" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div className="flex items-center gap-2 text-xs lg:text-sm">
-                <MdOutlineVerifiedUser
-                  className={value === 4 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 4 ? "text-white" : "text-[#191919]"}>
-                  Verifications
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              backgroundColor: value === 5 ? "#00AEA8" : "transparent",
-              color: value === 5 ? "#00796b" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div className="flex items-center gap-2 text-xs lg:text-sm">
-                <FaCreditCard
-                  className={value === 5 ? "text-white" : "text-[#00AEA8]"}
-                />{" "}
-                <p className={value === 5 ? "text-white" : "text-[#191919]"}>
-                  Payment
-                </p>
-              </div>
-            }
-          />
-          <Tab
-            sx={{
-              textTransform: "none",
-              backgroundColor: value === 6 ? "#00AEA8" : "transparent",
-              color: value === 6 ? "#00796b" : "",
-              alignItems: "flex-start",
-              textAlign: "left",
-            }}
-            label={
-              <div className="flex items-center gap-2 text-xs lg:text-sm">
-                <FaRegStar
-                  className={value === 6 ? "text-white" : "text-[#0b837f]"}
-                />{" "}
-                <p className={value === 6 ? "text-white" : "text-[#191919]"}>
-                  Reviews
-                </p>
-              </div>
-            }
-          />
-        </Tabs>
+      </Drawer>
+
+      {/* Desktop Sidebar */}
+      <div className="hidden lg:block bg-[#F9FAFB] w-[320px] lg:w-[300px] xl:w-[280px] py-5 px-3 lg:px-4 overflow-y-auto">
+        <ProfileSidebar
+          profileTabValue={profileTabValue}
+          menuTabValue={menuTabValue}
+          onProfileTabChange={handleProfileTabChange}
+          onMenuChange={handleMenuChange}
+        />
       </div>
 
-      <div className="w-full sm:px-5">
-        {value === 0 && <PersonalInformation />}
-        {value === 1 && <Bookings />}
-        {value === 2 && <Favourites />}
-        {value === 3 && <Security />}
-        {value === 4 && <Verifications />}
-        {value === 5 && <PersonalInformation />}
+      {/* Right Content Area */}
+      <div className="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto">
+        <div className="max-w-7xl mx-auto">
+          {profileTabValue === 0
+            ? renderUserTabContent()
+            : renderHostModeContent()}
+        </div>
       </div>
     </div>
   );
