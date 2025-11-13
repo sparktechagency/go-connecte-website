@@ -6,12 +6,19 @@ import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
 import Bookings from "@/components/profileComponents/Booking/Bookings";
-import PersonalInformation from "@/components/profileComponents/PersonalInformation";
-import Favourite from "@/components/profileComponents/Favourites";
-import Security from "@/components/profileComponents/Security";
-import Verifications from "@/components/profileComponents/Verifications";
-import Payment from "@/components/profileComponents/Payment";
+import PersonalInformation from "@/components/profileComponents/User Mode/PersonalInformation";
+import Favourite from "@/components/profileComponents/User Mode/Favourites";
+import Security from "@/components/profileComponents/User Mode/Security";
+import Verifications from "@/components/profileComponents/User Mode/Verifications";
+import Payment from "@/components/profileComponents/User Mode/Payment";
 import ProfileSidebar from "@/components/profileComponents/ProfilSidebar";
+import Reviews from "@/components/profileComponents/User Mode/Reviews";
+
+import Dashboard from "@/components/profileComponents/Host Mode/Dashboard";
+import MyVehicles from "@/components/profileComponents/Host Mode/MyVehicles";
+import Reservation from "@/components/profileComponents/Host Mode/Reservation";
+import HostReviews from "@/components/profileComponents/Host Mode/HostReviews";
+import Earning from "@/components/profileComponents/Host Mode/Earning";
 
 export default function Profile() {
   const [profileTabValue, setProfileTabValue] = useState(0);
@@ -39,15 +46,28 @@ export default function Profile() {
       case 5:
         return <Payment />;
       case 6:
-        return <div>Reviews Component</div>;
+        return <Reviews />;
       default:
         return null;
     }
   };
 
-  const renderHostModeContent = () => (
-    <div className="p-4 md:p-6">Host Mode Content Placeholder</div>
-  );
+  const renderHostModeContent = () => {
+    switch (menuTabValue) {
+      case 0:
+        return <Dashboard />;
+      case 1:
+        return <MyVehicles />;
+      case 2:
+        return <Reservation />;
+      case 3:
+        return <Earning />;
+      case 4:
+        return <HostReviews />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-white">

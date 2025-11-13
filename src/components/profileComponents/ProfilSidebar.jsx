@@ -9,7 +9,11 @@ import {
   FaLock,
   FaCreditCard,
   FaRegStar,
+  FaCarSide,
+  FaRegBell,
 } from "react-icons/fa";
+import { FaHandHoldingDollar } from "react-icons/fa6";
+
 import { LuBookOpenText } from "react-icons/lu";
 import { MdOutlineVerifiedUser, MdOutlinePhotoCamera } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
@@ -37,13 +41,20 @@ export default function ProfileSidebar({
     document.getElementById("profile-image-upload").click();
   };
 
-  const menuItems = [
+  const userModeItems = [
     { icon: FaUser, label: "Personal Information" },
     { icon: LuBookOpenText, label: "Bookings" },
     { icon: FaRegHeart, label: "Favourites" },
     { icon: FaLock, label: "Security" },
     { icon: MdOutlineVerifiedUser, label: "Verifications" },
     { icon: FaCreditCard, label: "Payment" },
+    { icon: FaRegStar, label: "Reviews" },
+  ];
+  const hostModeItems = [
+    { icon: FaUser, label: "Dashboard" },
+    { icon: FaCarSide, label: "My Vehicles" },
+    { icon: FaRegBell, label: "Reservation" },
+    { icon: FaHandHoldingDollar, label: "Earning" },
     { icon: FaRegStar, label: "Reviews" },
   ];
 
@@ -145,7 +156,7 @@ export default function ProfileSidebar({
           indicatorColor="none"
           className="w-full"
         >
-          {menuItems.map((item, index) => (
+          {userModeItems.map((item, index) => (
             <Tab
               key={index}
               sx={{
@@ -156,7 +167,46 @@ export default function ProfileSidebar({
                 color: menuTabValue === index ? "#fff" : "#191919",
                 alignItems: "flex-start",
                 textAlign: "left",
-                mb: 1,
+                minHeight: { xs: "40px", sm: "48px" },
+                py: { xs: 1, sm: 1.5 },
+                px: { xs: 1.5, sm: 2 },
+              }}
+              label={
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-medium w-full">
+                  <item.icon
+                    className={
+                      menuTabValue === index ? "text-white" : "text-[#00AEA8]"
+                    }
+                  />
+                  <span className="whitespace-nowrap">{item.label}</span>
+                </div>
+              }
+            />
+          ))}
+        </Tabs>
+      )}
+
+      {/* host tab items */}
+      {profileTabValue === 1 && (
+        <Tabs
+          orientation="vertical"
+          value={menuTabValue}
+          onChange={onMenuChange}
+          textColor="inherit"
+          indicatorColor="none"
+          className="w-full"
+        >
+          {hostModeItems.map((item, index) => (
+            <Tab
+              key={index}
+              sx={{
+                textTransform: "none",
+                borderRadius: "5px",
+                backgroundColor:
+                  menuTabValue === index ? "#00AEA8" : "transparent",
+                color: menuTabValue === index ? "#fff" : "#191919",
+                alignItems: "flex-start",
+                textAlign: "left",
                 minHeight: { xs: "40px", sm: "48px" },
                 py: { xs: 1, sm: 1.5 },
                 px: { xs: 1.5, sm: 2 },
