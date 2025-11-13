@@ -105,141 +105,8 @@ export default function Navbar() {
             Become A Host
           </Link>
           <RiDashboardHorizontalLine className="text-2xl cursor-pointer hover:text-[#00AEA8]" />
-          {user ? (
-            <div
-              className="relative"
-              onMouseEnter={handleDropdownOpen}
-              onMouseLeave={handleDropdownClose}
-            >
-              <FaRegUserCircle className="text-2xl cursor-pointer hover:text-[#00AEA8]" />
-              <AnimatePresence>
-                {isDropdownOpen && (
-                  <motion.div
-                    className="absolute right-0 top-10 mt-2 w-56 bg-gray-50 rounded-md shadow-lg py-2 z-50"
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                  >
-                    {[
-                      {
-                        href: "/profile/trips",
-                        label: "Trips",
-                        icon: <TbRoad />,
-                      },
-                      {
-                        href: "/inbox",
-                        label: "Inbox",
-                        icon: <FaRegMessage />,
-                      },
-                    ].map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                          pathname === link.href
-                            ? "bg-gray-100"
-                            : "hover:bg-gray-200"
-                        }`}
-                        onClick={handleDropdownClose}
-                      >
-                        {link.icon} {link.label}
-                      </Link>
-                    ))}
-                    <Divider variant="middle" />
-                    <Link
-                      href="/profile"
-                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                        pathname === "/profile"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={handleDropdownClose}
-                    >
-                      <Image
-                        src="/images/profile-image.png"
-                        alt="Profile Image"
-                        width={21}
-                        height={21}
-                      />
-                      <p>Profile</p>
-                    </Link>
-                    <Link
-                      href="/account"
-                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                        pathname === "/account"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={handleDropdownClose}
-                    >
-                      <FaRegUserCircle />
-                      <p>Account</p>
-                    </Link>
-                    <Link
-                      href="/switch-to-host"
-                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                        pathname === "/switch-to-host"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={handleDropdownClose}
-                    >
-                      <GoArrowSwitch />
-                      <p>Switch To Host</p>
-                    </Link>
-                    <Divider variant="middle" />
-                    {[
-                      {
-                        href: "/contact-us",
-                        label: "Contact Support",
-                        icon: <FaHeadphones />,
-                      },
-                      {
-                        href: "/terms-and-conditions",
-                        label: "Terms & Conditions",
-                        icon: <CgNotes />,
-                      },
-                    ].map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
-                          pathname === link.href
-                            ? "bg-gray-100"
-                            : "hover:bg-gray-200"
-                        }`}
-                        onClick={handleDropdownClose}
-                      >
-                        {link.icon} {link.label}
-                      </Link>
-                    ))}
-                    <Divider variant="middle" />
-                    <Button
-                      sx={{
-                        textTransform: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        px: "20px",
-                        color: "#191919",
-                        fontWeight: "500",
-                        width: "100%",
-                        justifyContent: "flex-start",
-                        fontStyle: "normal",
-                        fontSize: "15px",
-
-                        "&:hover": { backgroundColor: "#e5e7eb" },
-                      }}
-                      onClick={logOut}
-                    >
-                      <FiLogOut />
-                      Log Out
-                    </Button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+          {/* {user ? (
+          
           ) : (
             <Link
               href="sign-in"
@@ -247,7 +114,141 @@ export default function Navbar() {
             >
               Sign In
             </Link>
-          )}
+          )} */}
+          <div
+            className="relative"
+            onMouseEnter={handleDropdownOpen}
+            onMouseLeave={handleDropdownClose}
+          >
+            <FaRegUserCircle className="text-2xl cursor-pointer hover:text-[#00AEA8]" />
+            <AnimatePresence>
+              {isDropdownOpen && (
+                <motion.div
+                  className="absolute right-0 top-10 mt-2 w-56 bg-gray-50 rounded-md shadow-lg py-2 z-50"
+                  variants={dropdownVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  {[
+                    {
+                      href: "/profile/trips",
+                      label: "Trips",
+                      icon: <TbRoad />,
+                    },
+                    {
+                      href: "/inbox",
+                      label: "Inbox",
+                      icon: <FaRegMessage />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={handleDropdownClose}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+                  <Divider variant="middle" />
+                  <Link
+                    href="/profile"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/profile"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <Image
+                      src="/images/profile-image.png"
+                      alt="Profile Image"
+                      width={21}
+                      height={21}
+                    />
+                    <p>Profile</p>
+                  </Link>
+                  <Link
+                    href="/account"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/account"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <FaRegUserCircle />
+                    <p>Account</p>
+                  </Link>
+                  <Link
+                    href="/switch-to-host"
+                    className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                      pathname === "/switch-to-host"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={handleDropdownClose}
+                  >
+                    <GoArrowSwitch />
+                    <p>Switch To Host</p>
+                  </Link>
+                  <Divider variant="middle" />
+                  {[
+                    {
+                      href: "/contact-us",
+                      label: "Contact Support",
+                      icon: <FaHeadphones />,
+                    },
+                    {
+                      href: "/terms-and-conditions",
+                      label: "Terms & Conditions",
+                      icon: <CgNotes />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1.5 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={handleDropdownClose}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+                  <Divider variant="middle" />
+                  <Button
+                    sx={{
+                      textTransform: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      px: "20px",
+                      color: "#191919",
+                      fontWeight: "500",
+                      width: "100%",
+                      justifyContent: "flex-start",
+                      fontStyle: "normal",
+                      fontSize: "15px",
+
+                      "&:hover": { backgroundColor: "#e5e7eb" },
+                    }}
+                    onClick={logOut}
+                  >
+                    <FiLogOut />
+                    Log Out
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Hamburger Menu Button */}
@@ -266,7 +267,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-gray-700 transition-colors ${
+                className={`text-gray-700 text-sm transition-colors ${
                   pathname === link.href
                     ? "text-[#00AEA8] border-b-3 border-[#00AEA8]"
                     : "hover:text-[#00AEA8]"
@@ -279,148 +280,13 @@ export default function Navbar() {
             <LanguageToggle />
             <Link
               href="/"
-              className="bg-[#00AEA8] text-white px-4 py-2 rounded-md hover:bg-[#0d9488] transition-colors"
+              className="bg-[#00AEA8] text-white text-sm px-2 sm:px-4 am:py-2 rounded-md hover:bg-[#0d9488] transition-colors"
               onClick={toggleMobileMenu}
             >
               Become A Host
             </Link>
-            {user ? (
-              <div className="relative">
-                <FaRegUserCircle
-                  className="text-2xl cursor-pointer hover:text-[#00AEA8]"
-                  onClick={toggleDropdown}
-                />
-                {isDropdownOpen && (
-                  <div className="absolute top-8 left-0 transform -translate-x-1/2 w-56 bg-white rounded-md shadow-lg py-2 z-50">
-                    {[
-                      {
-                        href: "/favourites",
-                        label: "Favourites",
-                        icon: <LuHeart />,
-                      },
-                      { href: "/trips", label: "Trips", icon: <TbRoad /> },
-                      {
-                        href: "/inbox",
-                        label: "Inbox",
-                        icon: <FaRegMessage />,
-                      },
-                    ].map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                          pathname === link.href
-                            ? "bg-gray-100"
-                            : "hover:bg-gray-200"
-                        }`}
-                        onClick={toggleMobileMenu}
-                      >
-                        {link.icon} {link.label}
-                      </Link>
-                    ))}
-
-                    <Divider variant="middle" className="my-1" />
-
-                    <Link
-                      href="/profile"
-                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                        pathname === "/profile"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={toggleMobileMenu}
-                    >
-                      <Image
-                        src="/images/profile-image.png"
-                        alt="Profile Image"
-                        width={21}
-                        height={21}
-                      />
-                      <p>Profile</p>
-                    </Link>
-
-                    <Link
-                      href="/account"
-                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                        pathname === "/account"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={toggleMobileMenu}
-                    >
-                      <FaRegUserCircle />
-                      <p>Account</p>
-                    </Link>
-
-                    <Link
-                      href="/switch-to-host"
-                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                        pathname === "/switch-to-host"
-                          ? "bg-gray-100"
-                          : "hover:bg-gray-200"
-                      }`}
-                      onClick={toggleMobileMenu}
-                    >
-                      <GoArrowSwitch />
-                      <p>Switch To Host</p>
-                    </Link>
-
-                    <Divider variant="middle" className="my-1" />
-
-                    {[
-                      {
-                        href: "/contact-support",
-                        label: "Contact Support",
-                        icon: <FaHeadphones />,
-                      },
-                      {
-                        href: "/terms-and-conditions",
-                        label: "Terms & Conditions",
-                        icon: <CgNotes />,
-                      },
-                    ].map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
-                          pathname === link.href
-                            ? "bg-gray-100"
-                            : "hover:bg-gray-200"
-                        }`}
-                        onClick={toggleMobileMenu}
-                      >
-                        {link.icon} {link.label}
-                      </Link>
-                    ))}
-
-                    <Divider variant="middle" className="my-1" />
-
-                    <Button
-                      sx={{
-                        textTransform: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        px: "20px",
-                        color: "#191919",
-                        fontWeight: "500",
-                        width: "100%",
-                        justifyContent: "flex-start",
-                        fontStyle: "normal",
-                        fontSize: "15px",
-                        "&:hover": { backgroundColor: "#e5e7eb" },
-                      }}
-                      onClick={() => {
-                        handleLogOut();
-                        toggleMobileMenu();
-                      }}
-                    >
-                      <FiLogOut />
-                      Log Out
-                    </Button>
-                  </div>
-                )}
-              </div>
+            {/* {user ? (
+           
             ) : (
               <Link
                 href="sign-in"
@@ -428,7 +294,138 @@ export default function Navbar() {
               >
                 Sign In
               </Link>
-            )}
+            )} */}
+            <div className="relative">
+              <FaRegUserCircle
+                className="text-2xl cursor-pointer hover:text-[#00AEA8]"
+                onClick={toggleDropdown}
+              />
+              {isDropdownOpen && (
+                <div className="absolute top-8 left-0 transform -translate-x-1/2 w-56 bg-white rounded-md shadow-lg py-2 z-50">
+                  {[
+                    { href: "/trips", label: "Trips", icon: <TbRoad /> },
+                    {
+                      href: "/inbox",
+                      label: "Inbox",
+                      icon: <FaRegMessage />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+
+                  <Divider variant="middle" className="my-1" />
+
+                  <Link
+                    href="/profile"
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/profile"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
+                  >
+                    <Image
+                      src="/images/profile-image.png"
+                      alt="Profile Image"
+                      width={21}
+                      height={21}
+                    />
+                    <p>Profile</p>
+                  </Link>
+
+                  <Link
+                    href="/account"
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/account"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
+                  >
+                    <FaRegUserCircle />
+                    <p>Account</p>
+                  </Link>
+
+                  <Link
+                    href="/switch-to-host"
+                    className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                      pathname === "/switch-to-host"
+                        ? "bg-gray-100"
+                        : "hover:bg-gray-200"
+                    }`}
+                    onClick={toggleMobileMenu}
+                  >
+                    <GoArrowSwitch />
+                    <p>Switch To Host</p>
+                  </Link>
+
+                  <Divider variant="middle" className="my-1" />
+
+                  {[
+                    {
+                      href: "/contact-support",
+                      label: "Contact Support",
+                      icon: <FaHeadphones />,
+                    },
+                    {
+                      href: "/terms-and-conditions",
+                      label: "Terms & Conditions",
+                      icon: <CgNotes />,
+                    },
+                  ].map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`flex items-center gap-2 px-4 py-1 text-base text-[#191919] ${
+                        pathname === link.href
+                          ? "bg-gray-100"
+                          : "hover:bg-gray-200"
+                      }`}
+                      onClick={toggleMobileMenu}
+                    >
+                      {link.icon} {link.label}
+                    </Link>
+                  ))}
+
+                  <Divider variant="middle" className="my-1" />
+
+                  <Button
+                    sx={{
+                      textTransform: "none",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      px: "20px",
+                      color: "#191919",
+                      fontWeight: "500",
+                      width: "100%",
+                      justifyContent: "flex-start",
+                      fontStyle: "normal",
+                      fontSize: "15px",
+                      "&:hover": { backgroundColor: "#e5e7eb" },
+                    }}
+                    onClick={() => {
+                      handleLogOut();
+                      toggleMobileMenu();
+                    }}
+                  >
+                    <FiLogOut />
+                    Log Out
+                  </Button>
+                </div>
+              )}
+            </div>
             <RiDashboardHorizontalLine className="text-2xl cursor-pointer hover:text-[#00AEA8]" />
           </div>
         </div>

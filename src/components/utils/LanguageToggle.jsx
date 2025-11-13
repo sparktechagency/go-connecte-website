@@ -33,7 +33,7 @@ export default function LanguageToggle() {
           fontWeight: 500,
           color: "#000",
           height: {
-            xs: 24,
+            xs: 20,
             md: 30,
           },
           "&.Mui-selected": {
