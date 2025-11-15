@@ -118,6 +118,11 @@ export default function ProfileSidebar({
         textColor="inherit"
         indicatorColor="none"
         className="w-full mb-4"
+        sx={{
+          bgcolor: "#E9E9E9",
+          p: "5px",
+          borderRadius: "10px",
+        }}
       >
         <Tab
           sx={{
