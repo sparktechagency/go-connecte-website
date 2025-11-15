@@ -57,18 +57,18 @@ export default function Dashboard() {
   const [chartData, setChartData] = useState(data[0].data);
 
   const handleYearChange = (event) => {
-    const selectedYear = event.target.value;
-    setSelectedYear(selectedYear);
+    const year = event.target.value;
+    setSelectedYear(year);
 
     // Filter data based on selected year
     const selectedData = data.find(
       (yearData) => yearData.year === selectedYear
     );
-    setChartData(selectedData.data);
+    setChartData(selectedData ? selectedData.data : []);
   };
   return (
     <div className="w-full bg-white ">
-      <p className="text-[#191919] text-base sm:text-xl md:text-2xl font-semibold">
+      <p className="text-[#191919] text-base sm:text-xl md:text-2xl font-semibold mb-5">
         Dashboard
       </p>
       <div>
