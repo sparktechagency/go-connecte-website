@@ -28,30 +28,33 @@ const RecentBookings = () => {
   ];
 
   return (
-    <div className="">
-      <h2 className="text-lg font-semibold mb-4"></h2>
+    <div className="space-y-4">
       {bookings.map((booking, index) => (
         <div
           key={index}
-          className="flex justify-between items-center p-4 mb-4 border rounded-lg border-gray-200"
+          className="flex flex-col sm:flex-row justify-between sm:items-center p-4 mb-4 border rounded-lg border-[#F3F4F6] bg-[#F9FAFB] sm:max-w-full"
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mb-4 sm:mb-0">
             {/* Avatar */}
-            <div className="h-12 w-12 rounded-full bg-teal-500 text-white flex items-center justify-center">
-              <FiUsers />
+            <div className="size-8 sm:size-12 rounded-full bg-teal-500 text-white flex items-center justify-center">
+              <FiUsers className="sm:text-xl" />
             </div>
             <div>
-              <div className="text-lg font-medium">{booking.name}</div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm sm:text-lg font-medium">
+                {booking.name}
+              </div>
+              <div className="text-[10px] sm:text-sm text-gray-500 ">
                 {booking.vehicle} • {booking.dates}
               </div>
             </div>
           </div>
 
           {/* Price and Status */}
-          <div className="flex flex-col sm:flex-row items-center gap-5">
-            <div>
-              <p className="text-lg font-semibold">{booking.price}</p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 sm:text-lg">
+            <div className="flex sm:flex-col items-center justify-between ">
+              <p className="text-sm sm:text-lg font-semibold">
+                {booking.price}
+              </p>
               <Chip
                 label={booking.status}
                 size="small"
@@ -74,6 +77,7 @@ const RecentBookings = () => {
                 textTransform: "none",
                 color: "#0A0A0A",
                 height: "32px",
+                paddingX: 3,
               }}
             >
               View
