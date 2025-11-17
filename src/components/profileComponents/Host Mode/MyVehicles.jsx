@@ -221,9 +221,9 @@ const MyVehicles = () => {
   return (
     <div className="py-5">
       {/* Title and Stats */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-6">
         <div>
-          <p className="text-base lg:text-2xl font-semibold">
+          <p className="text-sm sm:text-base lg:text-2xl font-semibold">
             {isFormOpen
               ? isEditing
                 ? "Edit Vehicle"
@@ -404,7 +404,16 @@ const MyVehicles = () => {
         <MenuItem
           onClick={handleEdit}
           sx={{
-            fontSize: "14px",
+            fontSize: {
+              xs: "12px", // Smaller font size for extra small screens
+              sm: "14px", // Medium font size for small screens
+              md: "16px", // Larger font size for medium screens
+            },
+            padding: {
+              xs: "2px 12px", // Smaller padding for extra small screens
+              sm: "8px 16px", // Medium padding for small screens
+              md: "12px 20px", // Larger padding for medium screens
+            },
             "&:hover": {
               backgroundColor: "#00AEA8",
               color: "white",
@@ -416,7 +425,16 @@ const MyVehicles = () => {
         <MenuItem
           onClick={handleDelete}
           sx={{
-            fontSize: "14px",
+            fontSize: {
+              xs: "12px", // Smaller font size for extra small screens
+              sm: "14px", // Medium font size for small screens
+              md: "16px", // Larger font size for medium screens
+            },
+            padding: {
+              xs: "8px 12px", // Smaller padding for extra small screens
+              sm: "10px 16px", // Medium padding for small screens
+              md: "12px 20px", // Larger padding for medium screens
+            },
             "&:hover": {
               backgroundColor: "#d32f2f",
               color: "white",
