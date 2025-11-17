@@ -10,7 +10,6 @@ import {
   TextField,
   MenuItem,
   Select,
-  InputLabel,
   FormControl,
   Checkbox,
   FormControlLabel,
@@ -149,12 +148,13 @@ const VehicleForm = forwardRef(
     }));
 
     return (
-      <div className="flex  gap-5 bg-white rounded-lg">
-        <div>
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-6 bg-white rounded-lg p-3 sm:p-4 md:p-0">
+        {/* Left Column - Main Form */}
+        <div className="flex-1 w-full">
           {/* Vehicle Image Upload Section */}
-          <div className="mb-8 border border-[#E5E7EB] p-4 rounded-lg">
-            <div className="flex flex-col justify-between mb-2">
-              <h4 className="text-lg font-semibold text-[#191919] mb-5">
+          <div className="mb-4 md:mb-6 lg:mb-8 border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <div className="flex flex-col mb-3">
+              <h4 className="text-base sm:text-lg font-semibold text-[#191919] mb-3 sm:mb-4 lg:mb-5">
                 Vehicle Image
               </h4>
               <input
@@ -170,10 +170,11 @@ const VehicleForm = forwardRef(
                 sx={{
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: "8px",
-                  px: "16px",
-                  py: "8px",
-                  fontSize: "14px",
+                  px: { xs: "12px", sm: "16px" },
+                  py: { xs: "10px", sm: "12px" },
+                  fontSize: { xs: "13px", sm: "14px" },
                   textTransform: "none",
                   border: "1px dashed #E5E7EB",
                   color: "#0A0A0A",
@@ -183,23 +184,22 @@ const VehicleForm = forwardRef(
                     color: "white",
                   },
                 }}
-                className=" hover:bg-[#00AEA8] hover:text-white transition-colors"
               >
                 <FiUpload />
                 Upload Image
               </Button>
             </div>
-            <p className="text-xs text-[#737373]">
+            <p className="text-xs sm:text-sm text-[#737373] mb-3">
               Upload a high-quality image of your vehicle. Recommended size:
               1200x800px
             </p>
             {vehicleData.image && (
-              <div className="mt-3 w-full h-64 bg-gray-100 rounded-md overflow-hidden">
+              <div className="mt-3 w-full h-40 sm:h-48 md:h-64 bg-gray-100 rounded-md overflow-hidden">
                 <Image
                   src={vehicleData.image}
                   alt="Vehicle"
-                  height={50}
-                  width={50}
+                  height={256}
+                  width={400}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -207,15 +207,16 @@ const VehicleForm = forwardRef(
           </div>
 
           {/* Basic Information Section */}
-          <div className="mb-8 border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-lg font-semibold text-[#191919] mb-5">
+          <div className="mb-4 md:mb-6 lg:mb-8 border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-base sm:text-lg font-semibold text-[#191919] mb-3 sm:mb-4 lg:mb-5">
               Basic Information
             </h4>
 
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+            <div className="space-y-3 sm:space-y-4">
+              {/* Vehicle Name & Year */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Vehicle Name <span className="text-[#191919]">*</span>
                   </label>
                   <TextField
@@ -227,8 +228,10 @@ const VehicleForm = forwardRef(
                     size="small"
                     sx={{
                       bgcolor: "#F3F3F5",
-                      border: "none",
-                      outline: "none",
+                      "& .MuiInputBase-input": {
+                        fontSize: { xs: "13px", sm: "14px" },
+                        padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                      },
                       "& .MuiOutlinedInput-root": {
                         "&:hover fieldset": {
                           borderColor: "#00AEA8",
@@ -240,8 +243,8 @@ const VehicleForm = forwardRef(
                     }}
                   />
                 </div>
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+                <div className="flex-1 w-full sm:max-w-[200px]">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Year <span className="text-[#191919]">*</span>
                   </label>
                   <FormControl fullWidth size="small">
@@ -251,6 +254,10 @@ const VehicleForm = forwardRef(
                       onChange={handleChange}
                       displayEmpty
                       sx={{
+                        fontSize: { xs: "13px", sm: "14px" },
+                        "& .MuiSelect-select": {
+                          padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                        },
                         "&:hover .MuiOutlinedInput-notchedOutline": {
                           borderColor: "#00AEA8",
                         },
@@ -269,9 +276,10 @@ const VehicleForm = forwardRef(
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+              {/* Category & Transmission */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Category <span className="text-[#191919]">*</span>{" "}
                     <span className="text-xs font-normal text-[#6A7282]">
                       (Type of vehicle)
@@ -284,6 +292,10 @@ const VehicleForm = forwardRef(
                       onChange={handleChange}
                       displayEmpty
                       sx={{
+                        fontSize: { xs: "13px", sm: "14px" },
+                        "& .MuiSelect-select": {
+                          padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                        },
                         "&:hover .MuiOutlinedInput-notchedOutline": {
                           borderColor: "#00AEA8",
                         },
@@ -302,8 +314,8 @@ const VehicleForm = forwardRef(
                     </Select>
                   </FormControl>
                 </div>
-                <div className="flex-1">
-                  <label className="block text-sm font-medium text-[#191919] mb-2">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-medium text-[#191919] mb-1.5 sm:mb-2">
                     Transmission <span className="text-[#191919]">*</span>
                   </label>
                   <FormControl fullWidth size="small">
@@ -313,6 +325,10 @@ const VehicleForm = forwardRef(
                       onChange={handleChange}
                       displayEmpty
                       sx={{
+                        fontSize: { xs: "13px", sm: "14px" },
+                        "& .MuiSelect-select": {
+                          padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                        },
                         "&:hover .MuiOutlinedInput-notchedOutline": {
                           borderColor: "#00AEA8",
                         },
@@ -331,9 +347,10 @@ const VehicleForm = forwardRef(
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+              {/* Seats & Fuel Type */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Seats <span className="text-[#191919]">*</span>
                   </label>
                   <FormControl fullWidth size="small">
@@ -342,6 +359,10 @@ const VehicleForm = forwardRef(
                       name="seats"
                       onChange={handleChange}
                       sx={{
+                        fontSize: { xs: "13px", sm: "14px" },
+                        "& .MuiSelect-select": {
+                          padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                        },
                         "&:hover .MuiOutlinedInput-notchedOutline": {
                           borderColor: "#00AEA8",
                         },
@@ -358,8 +379,8 @@ const VehicleForm = forwardRef(
                     </Select>
                   </FormControl>
                 </div>
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Fuel Type <span className="text-[#191919]">*</span>
                   </label>
                   <FormControl fullWidth size="small">
@@ -369,6 +390,10 @@ const VehicleForm = forwardRef(
                       onChange={handleChange}
                       displayEmpty
                       sx={{
+                        fontSize: { xs: "13px", sm: "14px" },
+                        "& .MuiSelect-select": {
+                          padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                        },
                         "&:hover .MuiOutlinedInput-notchedOutline": {
                           borderColor: "#00AEA8",
                         },
@@ -389,9 +414,10 @@ const VehicleForm = forwardRef(
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+              {/* Odometer & Location */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Odometer / Mileage (km){" "}
                     <span className="text-[#191919]">*</span>
                   </label>
@@ -403,6 +429,10 @@ const VehicleForm = forwardRef(
                     onChange={handleChange}
                     size="small"
                     sx={{
+                      "& .MuiInputBase-input": {
+                        fontSize: { xs: "13px", sm: "14px" },
+                        padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                      },
                       "& .MuiOutlinedInput-root": {
                         "&:hover fieldset": {
                           borderColor: "#00AEA8",
@@ -414,8 +444,8 @@ const VehicleForm = forwardRef(
                     }}
                   />
                 </div>
-                <div className="flex-1">
-                  <label className="block text-sm font-semibold text-[#191919] mb-2">
+                <div className="flex-1 w-full">
+                  <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                     Location <span className="text-[#191919]">*</span>
                   </label>
                   <TextField
@@ -426,6 +456,10 @@ const VehicleForm = forwardRef(
                     onChange={handleChange}
                     size="small"
                     sx={{
+                      "& .MuiInputBase-input": {
+                        fontSize: { xs: "13px", sm: "14px" },
+                        padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                      },
                       "& .MuiOutlinedInput-root": {
                         "&:hover fieldset": {
                           borderColor: "#00AEA8",
@@ -439,10 +473,11 @@ const VehicleForm = forwardRef(
                 </div>
               </div>
 
+              {/* Driver Type */}
               <div>
-                <label className="block text-sm font-semibold text-[#191919] mb-2">
+                <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                   Driver Type <span className="text-[#191919]">*</span>
-                  <span className="text-xs text-[#737373] font-medium">
+                  <span className="text-xs text-[#737373] font-medium ml-1">
                     (Important rental option)
                   </span>
                 </label>
@@ -452,6 +487,10 @@ const VehicleForm = forwardRef(
                     name="driver"
                     onChange={handleChange}
                     sx={{
+                      fontSize: { xs: "13px", sm: "14px" },
+                      "& .MuiSelect-select": {
+                        padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                      },
                       "&:hover .MuiOutlinedInput-notchedOutline": {
                         borderColor: "#00AEA8",
                       },
@@ -466,7 +505,7 @@ const VehicleForm = forwardRef(
                     <MenuItem value="Self Drive">Self Drive</MenuItem>
                   </Select>
                 </FormControl>
-                <p className="text-xs text-[#737373] mt-1">
+                <p className="text-xs text-[#737373] mt-1.5">
                   This vehicle is available for rent on our platform
                 </p>
               </div>
@@ -474,8 +513,8 @@ const VehicleForm = forwardRef(
           </div>
 
           {/* Overview Section */}
-          <div className="mb-8 border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-lg font-semibold text-[#191919] mb-5">
+          <div className="mb-4 md:mb-6 lg:mb-8 border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-base sm:text-lg font-semibold text-[#191919] mb-3 sm:mb-4 lg:mb-5">
               Overview
             </h4>
             <TextField
@@ -488,6 +527,12 @@ const VehicleForm = forwardRef(
               onChange={handleChange}
               helperText="This description will be shown on the car details page"
               sx={{
+                "& .MuiInputBase-input": {
+                  fontSize: { xs: "13px", sm: "14px" },
+                },
+                "& .MuiFormHelperText-root": {
+                  fontSize: { xs: "11px", sm: "12px" },
+                },
                 "& .MuiOutlinedInput-root": {
                   "&:hover fieldset": {
                     borderColor: "#00AEA8",
@@ -501,422 +546,303 @@ const VehicleForm = forwardRef(
           </div>
 
           {/* Car Features Section */}
-          <div className="mb-8 border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-lg font-semibold text-[#191919] mb-5">
+          <div className="mb-4 md:mb-6 lg:mb-8 border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-base sm:text-lg font-semibold text-[#191919] mb-2 sm:mb-3 lg:mb-5">
               Car Features
             </h4>
-            <p className="text-sm text-[#737373] mb-4">
+            <p className="text-xs sm:text-sm text-[#737373] mb-3 sm:mb-4">
               Select the features available in your vehicle
             </p>
 
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.airConditioning}
-                      onChange={handleFeatureChange}
-                      name="airConditioning"
-                      sx={{
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.airConditioning}
+                    onChange={handleFeatureChange}
+                    name="airConditioning"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Air Conditioning
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.bluetooth}
-                      onChange={handleFeatureChange}
-                      name="bluetooth"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Air Conditioning
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.bluetooth}
+                    onChange={handleFeatureChange}
+                    name="bluetooth"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">Bluetooth</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.gps}
-                      onChange={handleFeatureChange}
-                      name="gps"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Bluetooth
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.gps}
+                    onChange={handleFeatureChange}
+                    name="gps"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      GPS or Satnav
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.usbCharger}
-                      onChange={handleFeatureChange}
-                      name="usbCharger"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    GPS or Satnav
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.usbCharger}
+                    onChange={handleFeatureChange}
+                    name="usbCharger"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">USB Charger</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.auxInput}
-                      onChange={handleFeatureChange}
-                      name="auxInput"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    USB Charger
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.auxInput}
+                    onChange={handleFeatureChange}
+                    name="auxInput"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">AUX Input</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.sunroof}
-                      onChange={handleFeatureChange}
-                      name="sunroof"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    AUX Input
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.sunroof}
+                    onChange={handleFeatureChange}
+                    name="sunroof"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">Sunroof</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.heatedSeats}
-                      onChange={handleFeatureChange}
-                      name="heatedSeats"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Sunroof
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.heatedSeats}
+                    onChange={handleFeatureChange}
+                    name="heatedSeats"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">Heated Seats</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.backupCamera}
-                      onChange={handleFeatureChange}
-                      name="backupCamera"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Heated Seats
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.backupCamera}
+                    onChange={handleFeatureChange}
+                    name="backupCamera"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Backup Camera
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.childSeat}
-                      onChange={handleFeatureChange}
-                      name="childSeat"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Backup Camera
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={vehicleData.features.childSeat}
+                    onChange={handleFeatureChange}
+                    name="childSeat"
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">Child Seat</span>
-                  }
-                />
-              </div>
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Child Seat
+                  </span>
+                }
+              />
             </div>
           </div>
+
           {/* Included Features Section */}
-          <div className="mb-8 border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-lg font-semibold text-[#191919] mb-5">
+          <div className="mb-4 md:mb-6 lg:mb-8 border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-base sm:text-lg font-semibold text-[#191919] mb-2 sm:mb-3 lg:mb-5">
               Included In The Price
             </h4>
-            <p className="text-sm text-[#737373] mb-4">
+            <p className="text-xs sm:text-sm text-[#737373] mb-3 sm:mb-4">
               Select what&apos;s included in the rental price{" "}
             </p>
 
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.airConditioning}
-                      onChange={handleFeatureChange}
-                      name="airConditioning"
-                      sx={{
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-2">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Rental Cost (all days add only includes)
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.bluetooth}
-                      onChange={handleFeatureChange}
-                      name="bluetooth"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Comprehensive Insurance
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Roadside Assistance
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.gps}
-                      onChange={handleFeatureChange}
-                      name="gps"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Professional Driver
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Liability insurance{" "}
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.usbCharger}
-                      onChange={handleFeatureChange}
-                      name="usbCharger"
-                      sx={{
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Basic Insurance
+                  </span>
+                }
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      padding: { xs: "6px", sm: "9px" },
+                      color: "#00AEA8",
+                      "&.Mui-checked": {
                         color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">24/7 Support</span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.auxInput}
-                      onChange={handleFeatureChange}
-                      name="auxInput"
-                      sx={{
-                        color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Comprehensive Insurance
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.sunroof}
-                      onChange={handleFeatureChange}
-                      name="sunroof"
-                      sx={{
-                        color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Professional Driver
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.heatedSeats}
-                      onChange={handleFeatureChange}
-                      name="heatedSeats"
-                      sx={{
-                        color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Basic Insurance
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.backupCamera}
-                      onChange={handleFeatureChange}
-                      name="backupCamera"
-                      sx={{
-                        color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Backup Camera
-                    </span>
-                  }
-                />
-              </div>
-              <div className="w-[calc(50%-1rem)]">
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={vehicleData.features.childSeat}
-                      onChange={handleFeatureChange}
-                      name="childSeat"
-                      sx={{
-                        color: "#00AEA8",
-                        "&.Mui-checked": {
-                          color: "#00AEA8",
-                        },
-                      }}
-                    />
-                  }
-                  label={
-                    <span className="text-sm text-[#191919]">
-                      Fuel included
-                    </span>
-                  }
-                />
-              </div>
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span className="text-xs sm:text-sm text-[#191919]">
+                    Fuel Included
+                  </span>
+                }
+              />
             </div>
           </div>
         </div>
 
-        {/* Pricing Section */}
-        <div className="flex flex-col gap-5">
-          <div className="border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-base font-semibold text-[#191919] mb-4">
+        {/* Right Column - Pricing & Status */}
+        <div className="w-full lg:w-64 xl:w-96 flex flex-col gap-4 md:gap-5">
+          {/* Pricing Section */}
+          <div className="border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-sm sm:text-base font-semibold text-[#191919] mb-3 sm:mb-4">
               Pricing
             </h4>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <div className="flex-1">
-                <label className="block text-sm font-semibold text-[#191919] mb-2">
+                <label className="block text-xs sm:text-sm font-semibold text-[#191919] mb-1.5 sm:mb-2">
                   Daily Rate (FCFA) <span className="text-[#191919]">*</span>
                 </label>
                 <TextField
@@ -928,6 +854,10 @@ const VehicleForm = forwardRef(
                   size="small"
                   sx={{
                     backgroundColor: "white",
+                    "& .MuiInputBase-input": {
+                      fontSize: { xs: "13px", sm: "14px" },
+                      padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                    },
                     "& .MuiOutlinedInput-root": {
                       "&:hover fieldset": {
                         borderColor: "#00AEA8",
@@ -939,24 +869,26 @@ const VehicleForm = forwardRef(
                   }}
                 />
               </div>
-              <div className="bg-[#00AEA81A] p-3 rounded-lg">
-                <p className="text-sm text-[#737373]">Preview Price</p>
-                <p className="text-[#00AEA8] font-semibold">
-                  {vehicleData.price}
+              <div className="bg-[#00AEA81A] p-2.5 sm:p-3 rounded-lg">
+                <p className="text-xs sm:text-sm text-[#737373]">
+                  Preview Price
+                </p>
+                <p className="text-base xl:text-lg text-[#00AEA8] font-semibold">
+                  {vehicleData.price || "0"} FCFA
                 </p>
               </div>
-              <div className="bg-[#F9FAFB] p-3 rounded-lg">
-                <p className="text-xs text-[#4A5565]">Rental Type</p>
+              <div className="bg-[#F9FAFB] p-2.5 sm:p-3 rounded-lg">
+                <p className="text-xs text-[#4A5565] mb-1">Rental Type</p>
                 <div className="flex items-center gap-2">
-                  <IoKey className="text-yellow-600" />
-                  <p className="text-[#191919] font-semibold">
+                  <IoKey className="text-yellow-600" size={16} />
+                  <p className="text-sm xl:text-base text-[#191919] font-semibold">
                     {vehicleData.driver}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-[#191919] mb-2">
+            <div className="mt-3 sm:mt-4">
+              <label className="block text-xs sm:text-sm font-medium text-[#191919] mb-1.5 sm:mb-2">
                 Other fees
               </label>
               <TextField
@@ -965,6 +897,10 @@ const VehicleForm = forwardRef(
                 size="small"
                 sx={{
                   backgroundColor: "white",
+                  "& .MuiInputBase-input": {
+                    fontSize: { xs: "13px", sm: "14px" },
+                    padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                  },
                   "& .MuiOutlinedInput-root": {
                     "&:hover fieldset": {
                       borderColor: "#00AEA8",
@@ -979,13 +915,13 @@ const VehicleForm = forwardRef(
           </div>
 
           {/* Listing Status Section */}
-          <div className="border border-[#E5E7EB] p-4 rounded-lg">
-            <h4 className="text-base font-semibold text-[#191919] mb-4">
+          <div className="border border-[#E5E7EB] p-3 sm:p-4 rounded-lg">
+            <h4 className="text-sm sm:text-base font-semibold text-[#191919] mb-3 sm:mb-4">
               Listing Status
             </h4>
             <div className="space-y-3">
               <div>
-                <label className="block text-sm font-medium text-[#191919] mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-[#191919] mb-1.5 sm:mb-2">
                   Status
                 </label>
                 <FormControl fullWidth size="small">
@@ -995,6 +931,10 @@ const VehicleForm = forwardRef(
                     onChange={handleChange}
                     sx={{
                       backgroundColor: "white",
+                      fontSize: { xs: "13px", sm: "14px" },
+                      "& .MuiSelect-select": {
+                        padding: { xs: "8px 10px", sm: "8.5px 14px" },
+                      },
                       "&:hover .MuiOutlinedInput-notchedOutline": {
                         borderColor: "#00AEA8",
                       },
@@ -1004,19 +944,19 @@ const VehicleForm = forwardRef(
                     }}
                   >
                     <MenuItem value="Available">
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 text-xs sm:text-sm">
                         <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                         Ensure availability for booking
                       </span>
                     </MenuItem>
                     <MenuItem value="Booked">
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 text-xs sm:text-sm">
                         <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
                         Booked
                       </span>
                     </MenuItem>
                     <MenuItem value="Maintenance">
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 text-xs sm:text-sm">
                         <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                         Maintenance
                       </span>
@@ -1024,17 +964,19 @@ const VehicleForm = forwardRef(
                   </Select>
                 </FormControl>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-[#191919] mb-2">
-                  Current Status
-                </label>
-                <div className="flex gap-2">
-                  <button className="px-4 py-2 text-sm bg-green-100 text-green-700 rounded-md font-medium">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs sm:text-sm font-medium text-[#191919]">
+                    Current Status
+                  </p>
+                  <p className="text-xs text-[#737373]">
+                    Your Listing Visibility
+                  </p>
+                </div>
+                <div className="bg-[#DCFCE7] border border-[#B9F8CF] rounded-lg px-2 py-1">
+                  <span className="text-[#008236] text-xs font-medium">
                     Active
-                  </button>
-                  <button className="px-4 py-2 text-sm text-[#737373] border border-[#E5E7EB] rounded-md hover:bg-gray-50">
-                    Inactive
-                  </button>
+                  </span>
                 </div>
               </div>
             </div>
