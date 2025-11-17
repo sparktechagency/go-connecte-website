@@ -17,7 +17,7 @@ import Link from "next/link";
 
 const data = [
   {
-    year: "2023",
+    year: "2024",
     data: [
       { month: "Jan", earnings: 25000, bookings: 8 },
       { month: "Feb", earnings: 30000, bookings: 10 },
@@ -34,7 +34,7 @@ const data = [
     ],
   },
   {
-    year: "2022",
+    year: "2025",
     data: [
       { month: "Jan", earnings: 23000, bookings: 5 },
       { month: "Feb", earnings: 28000, bookings: 7 },
@@ -83,17 +83,21 @@ export default function Dashboard() {
           }}
           className="w-full"
         >
-          <CardContent className="flex flex-row justify-between items-start p-4">
-            <div className="flex flex-col gap-3 items-start">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center bg-[#00AEA8] text-white">
-                <LuCircleDollarSign className="text-3xl" />
+          <CardContent className="flex flex-row justify-between items-start">
+            <div className="flex flex-col gap-1 sm:gap-3 items-start">
+              <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#00AEA8] text-white">
+                <LuCircleDollarSign className="text-lg sm:text-lg lg:text-3xl" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-[#4A5565]">Total Earnings</span>
-                <span className="text-lg font-semibold text-[#191919]">
+                <span className="text-xs sm:text-sm text-[#4A5565]">
+                  Total Earnings
+                </span>
+                <span className="lg:text-lg font-semibold text-[#191919]">
                   328,000 FCFA
                 </span>
-                <span className="text-xs text-slate-500 mt-1">This month</span>
+                <span className="text-xs text-slate-500 sm:mt-1">
+                  This month
+                </span>
               </div>
             </div>
 
@@ -121,14 +125,18 @@ export default function Dashboard() {
           className="w-full"
         >
           <CardContent className="flex flex-row justify-between items-start p-4">
-            <div className="flex flex-col gap-3 items-start">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center bg-[#155DFC] text-white">
-                <FaCarSide className="text-3xl" />
+            <div className="flex flex-col gap-1 sm:gap-3 items-start">
+              <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#155DFC] text-white">
+                <FaCarSide className="text-lg sm:text-lg lg:text-3xl" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-[#4A5565]">Your Vehicles</span>
-                <span className="text-lg font-semibold text-[#191919]">4</span>
-                <span className="text-xs text-slate-500 mt-1">Listed</span>
+                <span className="text-xs sm:text-sm text-[#4A5565]">
+                  Your Vehicles
+                </span>
+                <span className="lg:text-lg font-semibold text-[#191919]">
+                  4
+                </span>
+                <span className="text-xs text-slate-500 sm:mt-1">Listed</span>
               </div>
             </div>
 
@@ -156,14 +164,20 @@ export default function Dashboard() {
           className="w-full"
         >
           <CardContent className="flex flex-row justify-between items-start p-4">
-            <div className="flex flex-col gap-3 items-start">
-              <div className="h-12 w-12 rounded-xl flex items-center justify-center bg-[#9810FA] text-white">
-                <FaRegCalendar className="text-3xl" />
+            <div className="flex flex-col gap-1 sm:gap-3 items-start">
+              <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#9810FA] text-white">
+                <FaRegCalendar className="text-lg sm:text-lg lg:text-3xl" />
               </div>
               <div className="flex flex-col">
-                <span className="text-sm text-[#4A5565]">Total Bookings</span>
-                <span className="text-lg font-semibold text-[#191919]">46</span>
-                <span className="text-xs text-slate-500 mt-1">This month</span>
+                <span className="text-xs sm:text-sm text-[#4A5565]">
+                  Total Bookings
+                </span>
+                <span className="lg:text-lg font-semibold text-[#191919]">
+                  46
+                </span>
+                <span className="text-xs text-slate-500 sm:mt-1">
+                  This month
+                </span>
               </div>
             </div>
 

@@ -40,10 +40,10 @@ const RecentBookings = () => {
               <FiUsers className="sm:text-xl" />
             </div>
             <div>
-              <div className="text-sm sm:text-lg font-medium">
+              <div className="text-sm xl:text-lg font-medium">
                 {booking.name}
               </div>
-              <div className="text-[10px] sm:text-sm text-gray-500 ">
+              <div className="text-[10px] xl:text-sm text-gray-500 ">
                 {booking.vehicle} • {booking.dates}
               </div>
             </div>
@@ -52,14 +52,18 @@ const RecentBookings = () => {
           {/* Price and Status */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 sm:text-lg">
             <div className="flex sm:flex-col items-center justify-between ">
-              <p className="text-sm sm:text-lg font-semibold">
+              <p className="text-sm xl:text-lg font-semibold">
                 {booking.price}
               </p>
               <Chip
                 label={booking.status}
                 size="small"
-                className="mt-1"
                 sx={{
+                  fontSize: {
+                    xs: "11px", // For extra small screens (xs)
+                    sm: "12px", // For small screens (sm)
+                    md: "14px", // For medium screens (md)
+                  },
                   color: booking.status === "Confirmed" ? "#008236" : "#A65F00",
                   backgroundColor:
                     booking.status === "Confirmed" ? "#DCFCE7" : "#FEF9C2",
@@ -67,6 +71,11 @@ const RecentBookings = () => {
                     booking.status === "Confirmed"
                       ? "1px solid #B9F8CF"
                       : "1px solid #fff085",
+                  padding: {
+                    xs: "4px 6px",
+                    sm: "6px 12px", // Adjust padding for medium screens (sm)
+                    md: "8px 16px", // Adjust padding for larger screens (md)
+                  },
                 }}
               />
             </div>
