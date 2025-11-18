@@ -133,7 +133,7 @@ export default function ProfileSidebar({
             mr: 1,
             flex: 1,
             minHeight: { xs: "40px", sm: "48px" },
-            fontSize: { xs: "0.75rem", sm: "0.875rem" },
+            fontSize: { xs: "0.75rem", sm: "0.8rem" },
           }}
           label="User Mode"
         />
@@ -145,7 +145,7 @@ export default function ProfileSidebar({
             color: profileTabValue === 1 ? "#fff" : "#191919",
             flex: 1,
             minHeight: { xs: "40px", sm: "48px" },
-            fontSize: { xs: "0.75rem", sm: "0.875rem" },
+            fontSize: { xs: "0.75rem", sm: "0.8rem" },
           }}
           label="Host Mode"
         />
@@ -173,6 +173,7 @@ export default function ProfileSidebar({
                 alignItems: "flex-start",
                 textAlign: "left",
                 minHeight: { xs: "40px", sm: "48px" },
+                fontSize: { xs: "0.75rem", sm: "0.8rem" },
                 py: { xs: 1, sm: 1.5 },
                 px: { xs: 1.5, sm: 2 },
               }}
@@ -215,6 +216,7 @@ export default function ProfileSidebar({
                 minHeight: { xs: "40px", sm: "48px" },
                 py: { xs: 1, sm: 1.5 },
                 px: { xs: 1.5, sm: 2 },
+                fontSize: { xs: "0.75rem", sm: "0.8rem" },
               }}
               label={
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-medium w-full">

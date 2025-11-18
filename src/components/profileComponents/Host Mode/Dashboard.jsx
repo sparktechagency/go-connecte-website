@@ -68,7 +68,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 xl:px-12 py-6">
+    <div className="w-full bg-white px-4 sm:px-6 lg:px-8 py-6">
       <p className="text-[#191919] text-base sm:text-xl md:text-2xl font-semibold mb-5">
         Dashboard
       </p>

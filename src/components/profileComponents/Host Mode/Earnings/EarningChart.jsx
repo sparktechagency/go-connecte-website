@@ -15,25 +15,24 @@ import {
 
 const EarningsTrend = ({ data }) => {
   return (
-    <div className="bg-white shadow-md p-6 rounded-lg">
-      <ResponsiveContainer width="100%" height={400}>
-        <AreaChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Area
-            type="monotone"
-            dataKey="earnings"
-            stroke="#00AEA8"
-            fillOpacity={0.3}
-            fill="#00AEA8"
-            strokeWidth={3}
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-    </div>
+    <ResponsiveContainer width="100%" height={400}>
+      <AreaChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="month" />
+        <YAxis width="auto" tick={{ fill: "#00AEA8", fontSize: 12 }} />
+        <Tooltip />
+        <Legend />
+        <Area
+          type="monotone"
+          dataKey="earnings"
+          stroke="#00AEA8"
+          fillOpacity={0.3}
+          fill="#00AEA8"
+          strokeWidth={3}
+          name="Earnings"
+        />
+      </AreaChart>
+    </ResponsiveContainer>
   );
 };
 
