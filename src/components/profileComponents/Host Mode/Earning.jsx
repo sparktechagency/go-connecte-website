@@ -69,31 +69,33 @@ export default function Earning() {
 
   return (
     <div className="w-full bg-white">
-      <p className="text-[#191919] text-base sm:text-xl md:text-2xl font-semibold mb-5">
-        Dashboard
+      <p className="text-[#191919] text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-5">
+        Earnings
       </p>
-      <div>
-        <div className="flex flex-col md:flex-row gap-4">
+      <div className="space-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Total Earnings */}
           <Card
             elevation={0}
             sx={{
               borderRadius: 3,
-              background: "linear-gradient(135deg, #E3FFF6, #F4FFFD)",
+              background: "linear-gradient(90deg, #00AEA80D, #00AEA81A)",
             }}
             className="w-full"
           >
-            <CardContent className="flex flex-row justify-between items-start p-4">
-              <div className="flex flex-row gap-3 items-start">
-                <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-emerald-500 text-white">
-                  <LuCircleDollarSign fontSize="small" />
+            <CardContent className="flex flex-row justify-between items-start">
+              <div className="flex flex-col gap-1 sm:gap-3 items-start">
+                <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#00AEA8] text-white">
+                  <LuCircleDollarSign className="text-lg sm:text-lg lg:text-3xl" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-500">Total Earnings</span>
-                  <span className="text-xl font-semibold text-slate-900">
+                  <span className="text-xs sm:text-sm text-[#4A5565]">
+                    Total Earnings
+                  </span>
+                  <span className="lg:text-lg font-semibold text-[#191919]">
                     328,000 FCFA
                   </span>
-                  <span className="text-xs text-slate-500 mt-1">
+                  <span className="text-xs text-slate-500 sm:mt-1">
                     This month
                   </span>
                 </div>
@@ -103,10 +105,11 @@ export default function Earning() {
                 label="+23.5%"
                 size="small"
                 sx={{
-                  bgcolor: "#D4FBE3",
-                  color: "#16A34A",
-                  fontSize: "0.7rem",
+                  bgcolor: "#DCFCE7",
+                  color: "#008236",
+                  fontSize: "12px",
                   borderRadius: "999px",
+                  border: "1px solid #B9F8CF",
                 }}
               />
             </CardContent>
@@ -117,21 +120,23 @@ export default function Earning() {
             elevation={0}
             sx={{
               borderRadius: 3,
-              background: "linear-gradient(135deg, #E4F0FF, #F4F8FF)",
+              background: "linear-gradient(90deg, #EFF6FF, #DBEAFE)",
             }}
             className="w-full"
           >
             <CardContent className="flex flex-row justify-between items-start p-4">
-              <div className="flex flex-row gap-3 items-start">
-                <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-blue-600 text-white">
-                  <FaCarSide fontSize="small" />
+              <div className="flex flex-col gap-1 sm:gap-3 items-start">
+                <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#155DFC] text-white">
+                  <FaCarSide className="text-lg sm:text-lg lg:text-3xl" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-500">Your Vehicles</span>
-                  <span className="text-xl font-semibold text-slate-900">
+                  <span className="text-xs sm:text-sm text-[#4A5565]">
+                    Your Vehicles
+                  </span>
+                  <span className="lg:text-lg font-semibold text-[#191919]">
                     4
                   </span>
-                  <span className="text-xs text-slate-500 mt-1">Listed</span>
+                  <span className="text-xs text-slate-500 sm:mt-1">Listed</span>
                 </div>
               </div>
 
@@ -139,10 +144,11 @@ export default function Earning() {
                 label="4 Active"
                 size="small"
                 sx={{
-                  bgcolor: "#E0EDFF",
+                  bgcolor: "#DBEAFE",
                   color: "#2563EB",
-                  fontSize: "0.7rem",
+                  fontSize: "12px",
                   borderRadius: "999px",
+                  border: "1px solid #BEDBFF",
                 }}
               />
             </CardContent>
@@ -153,21 +159,23 @@ export default function Earning() {
             elevation={0}
             sx={{
               borderRadius: 3,
-              background: "linear-gradient(135deg, #F4E9FF, #FDF4FF)",
+              background: "linear-gradient(90deg, #FAF5FF, #F3E8FF)",
             }}
             className="w-full"
           >
             <CardContent className="flex flex-row justify-between items-start p-4">
-              <div className="flex flex-row gap-3 items-start">
-                <div className="h-10 w-10 rounded-xl flex items-center justify-center bg-fuchsia-600 text-white">
-                  <FaRegCalendar fontSize="small" />
+              <div className="flex flex-col gap-1 sm:gap-3 items-start">
+                <div className="size-8 lg:size-12 rounded-xl flex items-center justify-center bg-[#9810FA] text-white">
+                  <FaRegCalendar className="text-lg sm:text-lg lg:text-3xl" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-500">Total Bookings</span>
-                  <span className="text-xl font-semibold text-slate-900">
+                  <span className="text-xs sm:text-sm text-[#4A5565]">
+                    Total Bookings
+                  </span>
+                  <span className="lg:text-lg font-semibold text-[#191919]">
                     46
                   </span>
-                  <span className="text-xs text-slate-500 mt-1">
+                  <span className="text-xs text-slate-500 sm:mt-1">
                     This month
                   </span>
                 </div>
@@ -177,10 +185,11 @@ export default function Earning() {
                 label="+23.5%"
                 size="small"
                 sx={{
-                  bgcolor: "#D4FBE3",
-                  color: "#16A34A",
-                  fontSize: "0.7rem",
+                  bgcolor: "#F7EFeaF",
+                  color: "#9810FA",
+                  fontSize: "12px",
                   borderRadius: "999px",
+                  border: "1px solid #9810FA",
                 }}
               />
             </CardContent>
@@ -189,17 +198,44 @@ export default function Earning() {
         <div className="py-5">
           <div className="flex justify-between items-center mb-4">
             <div>
-              <h3 className="text-lg font-semibold">Earnings Trend</h3>
-              <p className="text-[#737373]">12-Month earnings overview</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold">
+                Earnings Trend
+              </h3>
+              <p className="text-[#737373] text-xs sm:text-base">
+                12-Month earnings overview
+              </p>
             </div>
 
             {/* Material UI Select for Year */}
             <FormControl className="w-32">
-              <InputLabel>Year</InputLabel>
+              <InputLabel
+                sx={{
+                  color: "#000",
+                  "&.Mui-focused": {
+                    color: "#00AEA8",
+                  },
+                }}
+              >
+                Year
+              </InputLabel>
               <Select
                 value={selectedYear}
                 onChange={handleYearChange}
                 label="Year"
+                sx={{
+                  height: "40px",
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "#00AEA8", // Set border color
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "#00AEA8", // Set border color on hover
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "#00AEA8", // Set border color when focused
+                    },
+                  },
+                }}
               >
                 {data.map((yearData) => (
                   <MenuItem key={yearData.year} value={yearData.year}>
@@ -215,9 +251,11 @@ export default function Earning() {
         </div>
         <div className="border border-[#E5E7EB] p-5 rounded-lg">
           <div className="flex justify-between items-center mb-4">
-            <p className="text-lg font-semibold">Recent Transactions</p>{" "}
+            <p className="text-lg sm:text-xl font-semibold">
+              Recent Transactions
+            </p>{" "}
             <div className="text-right">
-              <Link href="/" className="text-[#00AEA8] text-sm">
+              <Link href="/" className="text-[#00AEA8] text-sm sm:text-base">
                 View All
               </Link>
             </div>

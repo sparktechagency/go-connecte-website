@@ -17,6 +17,7 @@ import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 import { suggestedCarImage } from "../../../../public/images/AllImages";
 import Image from "next/image";
+import Link from "next/link";
 
 const reservationsData = [
   {
@@ -95,7 +96,7 @@ const Reservations = () => {
   };
 
   return (
-    <div className="py-5 w-3/4">
+    <div className="py-5 xl:w-3/4">
       {/* Tabs for Filter */}
       <div className="flex flex-col justify-between gap-4 mb-4">
         <div>
@@ -107,8 +108,14 @@ const Reservations = () => {
             value={selectedTab}
             onChange={handleTabChange}
             aria-label="Reservations Tabs"
+            size="small"
             textColor="inherit"
             indicatorColor="none"
+            sx={{
+              ".MuiTabs-flexContainer": {
+                padding: "0", // Remove any default padding
+              },
+            }}
           >
             <Tab
               label="All"
@@ -118,7 +125,21 @@ const Reservations = () => {
                 backgroundColor: selectedTab === 0 ? "#00AEA8" : "transparent",
                 color: selectedTab === 0 ? "#fff" : "#191919",
                 mr: 1,
-                fontSize: "0.875rem",
+                fontSize: {
+                  xs: "0.625rem", // Smaller font size for mobile screens
+                  sm: "0.75rem", // Slightly bigger font for small screens (tablets)
+                  md: "1rem", // Default for larger screens
+                },
+                px: {
+                  xs: "8px", // Smaller horizontal padding on mobile
+                  sm: "10px", // Padding for small screens
+                  md: "12px", // Larger padding for desktops
+                },
+                minWidth: {
+                  xs: "auto", // Let the tab width adjust on small screens
+                  sm: "auto", // Keep width auto on small screens
+                  md: "120px", // Set a minimum width for larger screens
+                },
               }}
             />
             <Tab
@@ -129,7 +150,21 @@ const Reservations = () => {
                 backgroundColor: selectedTab === 1 ? "#00AEA8" : "transparent",
                 color: selectedTab === 1 ? "#fff" : "#191919",
                 mr: 1,
-                fontSize: "0.875rem",
+                fontSize: {
+                  xs: "0.625rem", // Smaller font size for mobile screens
+                  sm: "0.75rem", // Slightly bigger font for small screens (tablets)
+                  md: "1rem", // Default for larger screens
+                },
+                px: {
+                  xs: "8px", // Smaller horizontal padding on mobile
+                  sm: "10px", // Padding for small screens
+                  md: "12px", // Larger padding for desktops
+                },
+                minWidth: {
+                  xs: "auto", // Let the tab width adjust on small screens
+                  sm: "auto", // Keep width auto on small screens
+                  md: "120px", // Set a minimum width for larger screens
+                },
               }}
             />
             <Tab
@@ -140,7 +175,21 @@ const Reservations = () => {
                 backgroundColor: selectedTab === 2 ? "#00AEA8" : "transparent",
                 color: selectedTab === 2 ? "#fff" : "#191919",
                 mr: 1,
-                fontSize: "0.875rem",
+                fontSize: {
+                  xs: "0.625rem", // Smaller font size for mobile screens
+                  sm: "0.75rem", // Slightly bigger font for small screens (tablets)
+                  md: "1rem", // Default for larger screens
+                },
+                px: {
+                  xs: "8px", // Smaller horizontal padding on mobile
+                  sm: "10px", // Padding for small screens
+                  md: "12px", // Larger padding for desktops
+                },
+                minWidth: {
+                  xs: "auto", // Let the tab width adjust on small screens
+                  sm: "auto", // Keep width auto on small screens
+                  md: "120px", // Set a minimum width for larger screens
+                },
               }}
             />
             <Tab
@@ -151,7 +200,21 @@ const Reservations = () => {
                 backgroundColor: selectedTab === 3 ? "#00AEA8" : "transparent",
                 color: selectedTab === 3 ? "#fff" : "#191919",
                 mr: 1,
-                fontSize: "0.875rem",
+                fontSize: {
+                  xs: "0.625rem", // Smaller font size for mobile screens
+                  sm: "0.75rem", // Slightly bigger font for small screens (tablets)
+                  md: "1rem", // Default for larger screens
+                },
+                px: {
+                  xs: "8px", // Smaller horizontal padding on mobile
+                  sm: "10px", // Padding for small screens
+                  md: "12px", // Larger padding for desktops
+                },
+                minWidth: {
+                  xs: "auto", // Let the tab width adjust on small screens
+                  sm: "auto", // Keep width auto on small screens
+                  md: "120px", // Set a minimum width for larger screens
+                },
               }}
             />
             <Tab
@@ -159,10 +222,24 @@ const Reservations = () => {
               sx={{
                 textTransform: "none",
                 borderRadius: "5px",
-                backgroundColor: selectedTab === 4 ? "#00AEA8" : "transparent",
-                color: selectedTab === 4 ? "#fff" : "#191919",
+                backgroundColor: selectedTab === 5 ? "#00AEA8" : "transparent",
+                color: selectedTab === 5 ? "#fff" : "#191919",
                 mr: 1,
-                fontSize: "0.875rem",
+                fontSize: {
+                  xs: "0.625rem", // Smaller font size for mobile screens
+                  sm: "0.75rem", // Slightly bigger font for small screens (tablets)
+                  md: "1rem", // Default for larger screens
+                },
+                px: {
+                  xs: "8px", // Smaller horizontal padding on mobile
+                  sm: "10px", // Padding for small screens
+                  md: "12px", // Larger padding for desktops
+                },
+                minWidth: {
+                  xs: "auto", // Let the tab width adjust on small screens
+                  sm: "auto", // Keep width auto on small screens
+                  md: "120px", // Set a minimum width for larger screens
+                },
               }}
             />
           </Tabs>
@@ -188,7 +265,7 @@ const Reservations = () => {
             <CardContent className="flex gap-4">
               {/* Vehicle and Guest Info */}
               <div className="flex flex-col gap-3 w-full">
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <div className="rounded-md">
                     <Image
                       src={reservation.image}
@@ -210,33 +287,44 @@ const Reservations = () => {
                           sx={{
                             bgcolor:
                               reservation.status === "Completed"
-                                ? "#D4FBE3"
+                                ? "#F3F4F6"
+                                : reservation.status === "Confirmed"
+                                ? "#DCFCE7"
                                 : reservation.status === "Pending"
                                 ? "#FEF9C2"
                                 : reservation.status === "Ongoing"
                                 ? "#8B5CF61A"
+                                : reservation.status === "Cancelled"
+                                ? "#EB17001A"
                                 : "#D4FBE3",
                             color:
                               reservation.status === "Completed"
-                                ? "#16A34A"
+                                ? "#364153"
+                                : reservation.status === "Confirmed"
+                                ? "#008236"
                                 : reservation.status === "Pending"
                                 ? "#A65F00"
                                 : reservation.status === "Ongoing"
                                 ? "#8B5CF6"
+                                : reservation.status === "Cancelled"
+                                ? "#EB1700"
                                 : "#16A34A",
-                            fontSize: "0.7rem",
+                            fontSize: {
+                              xs: "10px",
+                              md: "14px",
+                            },
                             borderRadius: "999px",
                             mt: 1,
                           }}
                         />
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-[#737373]">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-[#737373]">
                         <FiUser />
-                        <p className="text-sm text-gray-500">{`Guest: ${reservation.guest}`}</p>
+                        <p className=" text-gray-500">{`Guest: ${reservation.guest}`}</p>
                         <FaStar className="text-[#FDC700]" />
                         <p className="text-[#4A5565]">{reservation.rating}</p>
                       </div>
-                      <div className="flex gap-3 text-sm text-gray-500">
+                      <div className="flex flex-col sm:flex-row  sm:gap-3 text-xs sm:text-sm text-gray-500">
                         <p>{reservation.bookingDate}</p>
                         <p>{reservation.location}</p>
                       </div>
@@ -244,20 +332,26 @@ const Reservations = () => {
                     {/* Amount and Status */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 w-full border border-[#00AEA81A] p-5 rounded-lg bg-[#00AEA81A] mt-3">
                       <div>
-                        <p className="text-sm text-[#737373]">Daily Rate</p>{" "}
-                        <p className="font-semibold text-[#191919]">
+                        <p className="text-xs sm:text-sm text-[#737373]">
+                          Daily Rate
+                        </p>{" "}
+                        <p className="text-sm sm:text-base font-semibold text-[#191919]">
                           {reservation.dailyRate}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-[#737373]">Duration</p>
-                        <p className="font-semibold text-[#191919]">
+                        <p className="text-xs sm:text-sm text-[#737373]">
+                          Duration
+                        </p>
+                        <p className="text-sm sm:text-base font-semibold text-[#191919]">
                           {reservation.duration}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-[#737373]">Total</p>
-                        <p className="font-semibold text-[#00AEA8]">
+                        <p className="text-xs sm:text-sm text-[#737373]">
+                          Total
+                        </p>
+                        <p className="text-sm sm:text-base font-semibold text-[#00AEA8]">
                           {reservation.total}
                         </p>
                       </div>
@@ -265,7 +359,7 @@ const Reservations = () => {
                     <div className="flex items-center gap-4 w-full">
                       {/* Action Buttons */}
                       {reservation.status === "Pending" && (
-                        <div className="flex gap-2 w-full">
+                        <div className="flex flex-col sm:flex-row sm:gap-2 w-full">
                           <Button
                             sx={{
                               border: "1px solid #E5E7EB",
@@ -277,6 +371,20 @@ const Reservations = () => {
                               alignItems: "center",
                               gap: "5px",
                               mt: "8px",
+                              fontSize: {
+                                xs: "0.7rem", // Font size for mobile
+                                lg: "0.9rem", // Font size for larger screens
+                              },
+                              py: {
+                                xs: "8px", // Vertical padding for mobile
+                                sm: "10px", // Padding for small screens
+                                lg: "12px", // Padding for larger screens
+                              },
+                              px: {
+                                xs: "12px", // Horizontal padding for mobile
+                                sm: "16px", // Padding for small screens
+                                lg: "20px", // Padding for larger screens
+                              },
                             }}
                           >
                             <FaRegCircleCheck />
@@ -292,6 +400,20 @@ const Reservations = () => {
                               alignItems: "center",
                               gap: "5px",
                               mt: "8px",
+                              fontSize: {
+                                xs: "0.7rem", // Font size for mobile
+                                lg: "0.9rem", // Font size for larger screens
+                              },
+                              py: {
+                                xs: "8px", // Vertical padding for mobile
+                                sm: "10px", // Padding for small screens
+                                lg: "12px", // Padding for larger screens
+                              },
+                              px: {
+                                xs: "12px", // Horizontal padding for mobile
+                                sm: "16px", // Padding for small screens
+                                lg: "20px", // Padding for larger screens
+                              },
                             }}
                           >
                             <IoCloseCircleOutline />
@@ -299,7 +421,7 @@ const Reservations = () => {
                           </Button>
                         </div>
                       )}
-                      <div className="flex items-center justify-end gap-2 w-1/2 ">
+                      <div className="flex flex-col sm:flex-row items-center justify-end sm:gap-2 w-full ">
                         {reservation.status === "Confirmed" && (
                           <Button
                             sx={{
@@ -312,12 +434,27 @@ const Reservations = () => {
                               alignItems: "center",
                               gap: "5px",
                               mt: "8px",
+                              fontSize: {
+                                xs: "0.7rem", // Font size for mobile
+                                lg: "0.9rem", // Font size for larger screens
+                              },
+                              py: {
+                                xs: "8px", // Mobile padding
+                                sm: "10px", // Small screen padding
+                                lg: "12px", // Larger screen padding
+                              },
+                              px: {
+                                xs: "12px", // Mobile horizontal padding
+                                sm: "16px", // Small screen horizontal padding
+                                lg: "20px", // Larger screen horizontal padding
+                              },
                             }}
                           >
                             <IoMdCheckmarkCircleOutline />
-                            <p> Mark as Completed</p>
+                            <p>Mark as Completed</p>
                           </Button>
                         )}
+
                         {reservation.status !== "Pending" &&
                           reservation.status !== "Confirmed" && (
                             <Button
@@ -330,26 +467,34 @@ const Reservations = () => {
                                 alignItems: "center",
                                 gap: "5px",
                                 mt: "8px",
+                                fontSize: {
+                                  xs: "0.7rem", // Font size for mobile
+                                  lg: "0.9rem", // Font size for larger screens
+                                },
+                                py: {
+                                  xs: "8px",
+                                  sm: "10px",
+                                  lg: "12px",
+                                },
+                                px: {
+                                  xs: "12px",
+                                  sm: "16px",
+                                  lg: "20px",
+                                },
                               }}
                             >
                               <FaRegEye />
                               <p>View Details</p>
                             </Button>
                           )}
-                        <Button
-                          sx={{
-                            border: "1px solid #E5E7EB",
-                            textTransform: "none",
-                            color: "#0A0A0A",
-                            width: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "5px",
-                            mt: "8px",
-                          }}
+
+                        <Link
+                          href="/inbox"
+                          className="flex items-center justify-center gap-1 w-full border border-[#E5E7EB] text-[#0A0A0A] text-xs sm:text-sm xl:text-base p-2 xl:p-3 rounded-md mt-2"
                         >
-                          <LuMessageSquare className="" /> <p>Contact Guest</p>
-                        </Button>
+                          <LuMessageSquare />
+                          <p>Contact Guest</p>
+                        </Link>
                       </div>
                     </div>
                   </div>

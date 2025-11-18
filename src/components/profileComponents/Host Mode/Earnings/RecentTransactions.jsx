@@ -1,5 +1,15 @@
 import React from "react";
-import { Card, CardContent, Chip, Button } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  Paper,
+  Chip,
+} from "@mui/material";
 import { FaCar } from "react-icons/fa"; // For Vehicle Icon
 
 const recentTransactions = [
@@ -55,58 +65,169 @@ const recentTransactions = [
 
 const RecentTransactions = () => {
   return (
-    <div className="space-y-2 ">
-      {recentTransactions.map((transaction, index) => (
-        <Card key={index} sx={{ bgcolor: "#F9FAFB" }}>
-          <CardContent className="flex justify-between items-center p-4">
-            <div className="flex gap-4">
-              {/* Vehicle and Transaction Info */}
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 flex justify-center items-center bg-gray-200 rounded-full">
-                  <FaCar className="text-xl text-[#191919]" />
-                </div>
-                <div>
-                  <p className="font-semibold">{transaction.vehicle}</p>
-                  <p className="text-sm text-gray-500">
-                    {transaction.bookingRef}
-                  </p>
-                  <p className="text-sm text-gray-500">{`Guest: ${transaction.guest}`}</p>
-                  <p className="text-sm text-gray-500">{transaction.date}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Amount and Status */}
-            <div className="text-right">
-              <p className="text-xl font-semibold text-gray-900">
-                {transaction.amount}
-              </p>
-              <Chip
-                label={transaction.status}
-                size="small"
+    <TableContainer component={Paper} sx={{ maxHeight: 500 }}>
+      <Table stickyHeader aria-label="recent transactions table">
+        <TableHead>
+          <TableRow
+            sx={{
+              bgcolor: "#F9FAFB",
+            }}
+          >
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Vehicle
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Booking Reference
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Guest
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Date
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Amount
+            </TableCell>
+            <TableCell
+              sx={{
+                fontWeight: 600,
+                color: "#4B5563",
+                fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                py: { xs: 1.5, sm: 2 },
+              }}
+            >
+              Status
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {recentTransactions.map((transaction, index) => (
+            <TableRow
+              key={index}
+              sx={{
+                transition: "background-color 0.2s ease",
+                "&:hover": { backgroundColor: "#F9FAFB" },
+              }}
+            >
+              <TableCell
                 sx={{
-                  bgcolor:
-                    transaction.status === "Completed"
-                      ? "#D4FBE3"
-                      : transaction.status === "Pending"
-                      ? "#FFF7D5"
-                      : "#D4FBE3",
-                  color:
-                    transaction.status === "Completed"
-                      ? "#16A34A"
-                      : transaction.status === "Pending"
-                      ? "#F59E0B"
-                      : "#16A34A",
-                  fontSize: "0.7rem",
-                  borderRadius: "999px",
-                  mt: 1,
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
                 }}
-              />
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 flex justify-center items-center bg-gray-200 rounded-full">
+                    <FaCar className="text-xl text-[#191919]" />
+                  </div>
+                  <span>{transaction.vehicle}</span>
+                </div>
+              </TableCell>
+              <TableCell
+                sx={{
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
+                }}
+              >
+                {transaction.bookingRef}
+              </TableCell>
+              <TableCell
+                sx={{
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
+                }}
+              >
+                {transaction.guest}
+              </TableCell>
+              <TableCell
+                sx={{
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
+                }}
+              >
+                {transaction.date}
+              </TableCell>
+              <TableCell
+                sx={{
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
+                }}
+              >
+                {transaction.amount}
+              </TableCell>
+              <TableCell
+                sx={{
+                  color: "#191919",
+                  fontSize: { xs: "0.6rem", sm: "0.7rem", xl: "0.95rem" },
+                  py: { xs: 1.5, sm: 2 },
+                }}
+              >
+                <Chip
+                  label={transaction.status}
+                  size="small"
+                  sx={{
+                    bgcolor:
+                      transaction.status === "Completed"
+                        ? "#D4FBE3"
+                        : transaction.status === "Pending"
+                        ? "#FFF7D5"
+                        : "#D4FBE3",
+                    color:
+                      transaction.status === "Completed"
+                        ? "#16A34A"
+                        : transaction.status === "Pending"
+                        ? "#F59E0B"
+                        : "#16A34A",
+                    fontSize: "0.7rem",
+                    borderRadius: "999px",
+                    mt: 1,
+                  }}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
